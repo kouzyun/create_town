@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   #デバイス
-  devise_for :users, skip: :all
-  devise_scope :users do
+  devise_for :users, skip: [:registrations, :sessions]
+  devise_scope :user do
     get '/users/sign_in', to: 'users/sessions#new'
     post '/users/sign_in', to: 'users/sessions#create'
     delete '/users/sign_out', to: 'users/sessions#destroy'
