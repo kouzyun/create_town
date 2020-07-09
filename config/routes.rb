@@ -18,11 +18,13 @@ Rails.application.routes.draw do
 
   #ユーザー
   resources :users do
-    resources :relationships, only: [:create, :destroy] #フォロー
+    #フォロー
+    resources :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
   end
 
+  #投稿
   resources :posts do
     resources :comments, only: [:create, :destroy] #コメント
     resources :favorites, only: [:create, :destroy] #いいね
