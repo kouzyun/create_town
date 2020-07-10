@@ -1,3 +1,33 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sign_up_form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.sign_up_form .sign_up_body{
+  width: 100%;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #e0ffff;
+}
+
+.log_in_form{
+	display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.log_in_form .log_in_body {
+  width: 100%;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #e0ffff;
+}
