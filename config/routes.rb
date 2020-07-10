@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   #デバイス
-  devise_for :users, skip: :all
-  devise_scope :users do
+  devise_for :users, skip: [:registrations, :sessions]
+  devise_scope :user do
     get '/users/sign_in', to: 'users/sessions#new'
     post '/users/sign_in', to: 'users/sessions#create'
     delete '/users/sign_out', to: 'users/sessions#destroy'
@@ -18,11 +18,13 @@ Rails.application.routes.draw do
 
   #ユーザー
   resources :users do
-    resources :relationships, only: [:create, :destroy] #フォロー
+    #フォロー
+    resources :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
   end
 
+  #投稿
   resources :posts do
     resources :comments, only: [:create, :destroy] #コメント
     resources :favorites, only: [:create, :destroy] #いいね
