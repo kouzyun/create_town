@@ -1,5 +1,16 @@
 <h1>新規登録</h1>
 
-<%= form_with model: @user do |f| %>
+<%= form_for(@post) do |f| %>
 
-	<新規投稿
+	<h4>タイトル</h4>
+	<%= f.text_field :title %>
+
+	<h4>本文</h4>
+	<%= f.text_area :body %>
+
+	<h4>カテゴリー</h4>
+	<%= f.select :category , Post.categories.keys  %>
+
+	<%= f.submit %>
+
+<% end %>
