@@ -1,10 +1,22 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>投稿一覧</h1>
 
-
-<% @posts.each do |post| %>
-	<p>タイトル</p>
-	<span><%= post.title %></span>
-	<span><%= link_to "show", post_path(post) %></span>
-	<%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
-<% end %>
+<div class="post_index">
+	<% @posts.each do |post| %>
+		<div class="post_main">
+			<%= link_to post_path(post) do %>
+				<table>
+					<tbody align="center">
+					<tr><td><%= attachment_image_tag post, :image, :fill, 250, 150, format: 'jpeg' %></td>
+					</tr>
+					<tr><td>
+				<span><%= post.title %></span></td></tr>
+			<% end %>
+				<tr><td>
+				<span><%= post.category %></span></td></tr>
+				<tr><td>
+				<span><%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span></td></tr>
+				</tbody>
+			</table>
+		</div>
+	<% end %>
+</div>
