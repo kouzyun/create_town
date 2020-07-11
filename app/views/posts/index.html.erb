@@ -6,4 +6,5 @@
 	<p>タイトル</p>
 	<span><%= post.title %></span>
 	<span><%= link_to "show", post_path(post) %></span>
+	<%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
 <% end %>
