@@ -5,9 +5,32 @@
 .post_index{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
+	max-width: 1000px;
 }
 
-.post_index .post_main{
+
+.post_index .post_item{
 	border : solid 1px;
+	border-radius: 5px;
+	margin: 20px;
+}
+a {
+  text-decoration: none;
+}
+.prefecture_name{
+	padding-right: 5px;
+	width: 50px;
+	height: 30px;
+	border: solid 1px ;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center; /* 追加 */
+  	align-items: center; /* 追加 */
+  	padding-left: 5px;
+}
+
+.post-pagenate{
+	display: flex;
+	margin: 0 auto;
 }

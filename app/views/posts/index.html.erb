@@ -2,23 +2,36 @@
 
 <div class="post_index">
 	<% @posts.each do |post| %>
-		<div class="post_main">
+		<div class="post_item">
 			<%= link_to post_path(post) do %>
 				<table>
 					<tbody align="center">
-					<tr><td><%= attachment_image_tag post, :image, :fill, 250, 150, format: 'jpeg' %></td>
-					</tr>
-					<tr><td>
-				<span><%= post.title %></span></td></tr>
+						<tr>
+							<td><%= attachment_image_tag post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%></td>
+						</tr>
+						<tr>
+							<td><span><%= post.title %></span></td>
+						</tr>
+
+						<tr>
+							<td><span><%= post.category %></span></td>
+						</tr>
+						<% if post.address.present? %>
+							<tr align="right" >
+								<td>
+									<div class="prefecture_name">
+										<span><%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span>
+									</div>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
 			<% end %>
-				<tr><td>
-				<span><%= post.category %></span></td></tr>
-				<tr><td>
-				<span><%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span></td></tr>
-				</tbody>
-			</table>
 		</div>
 	<% end %>
-</div>
 
-<%= paginate @posts %>
+	<div  class="post-pagenate">
+		<%= paginate @posts %>
+	</div>
+</div>
