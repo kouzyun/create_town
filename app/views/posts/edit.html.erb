@@ -1,2 +1,26 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+
+
+<%= form_for(@post, url: post_path(@post)) do |f| %>
+	<h4>写真</h4>
+	<%= f.attachment_field :image %>
+
+	<h4>タイトル</h4>
+	<%= f.text_field :title %>
+
+	<h4>本文</h4>
+	<%= f.text_area :body %>
+
+	<h4>カテゴリー</h4>
+	<%= f.select :category , Post.categories.keys  %>
+
+	<h4>郵便番号</h4>
+	<%= f.text_field :postal_code %>
+
+	<h4>住所</h4>
+	<%= f.text_field :address %>
+
+	<%= f.submit %>
+
+<% end %>
