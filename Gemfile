@@ -71,3 +71,5 @@ gem "refile-mini_magick"
 gem "geocoder"
 
 gem "dotenv-rails"
+
+gem 'kaminari', '~> 1.2.1'
