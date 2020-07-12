@@ -7,4 +7,6 @@ class Post < ApplicationRecord
 	#geocoderがaddressカラムからlatitude,longitudeに自動的に反映させる
 	geocoded_by :address
 	after_validation :geocode
+
+	validates :title, :body, presence: { message: ':必ず1文字以上入力してください。' }
 end

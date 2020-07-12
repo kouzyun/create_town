@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_post, only: [:edit, :update]
 
   def index
     @posts = Post.page(params[:page]).reverse_order
@@ -14,10 +15,13 @@ class PostsController < ApplicationController
   end
 
   def create
-  	post = Post.new(post_params)
-    post.user_id = current_user.id
-  	post.save
-  	redirect_to posts_path
+  	@post = Post.new(post_params)
+    @post.user_id = current_user.id
+  	if @post.save
+  	 redirect_to posts_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -25,9 +29,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_path(post)
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -37,6 +44,13 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def correct_post
+    post = Post.find(params[:id])
+    if post.user != current_user
+      redirect_to posts_path
+    end
+  end
   
   def post_params
   	params.require(:post).permit(:user_id, :title, :body, :image, :category, :postal_code, :address, :latitude, :longitude)
