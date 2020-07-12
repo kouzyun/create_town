@@ -14,3 +14,23 @@
  *= require_self
  */
 
+ header{
+ 	display:flex;
+ 	align-items: center;
+ }
+
+header nav{
+	margin-left: auto;
+}
+a{
+	text-decoration: none;
+}
+
+header nav ul{
+	display:flex;
+}
+
+nav ul li{
+	padding: 0 20px;
+	list-style-type: none;
+}

@@ -1,2 +1,81 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="post_show">
+  <ul class="post_show_top">
+    <li>
+      <div class="post_show_title">
+        <h3><span class="under"><%= @post.title %></span></h3>
+      </div>
+    </li>
+    <li>
+      <div class="post_show_prefecture">
+        <div class="prefecture_name">
+          <span><%= @post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span>
+        </div>
+      </div>
+    </li>
+    <% if @post.user == current_user %>
+    <li><%= link_to "編集", edit_post_path(@post.id) %>
+    </li>
+    <li><%= link_to "削除", post_path(@post), method: :delete %>
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="post_show_name">
+    <%= @post.user.last_name + @post.user.first_name %>
+  </div>
+
+  <div class="post_show_category">
+    <span><%= @post.category %></span>
+  </div>
+
+    <div class="post_show_item">
+    <%= attachment_image_tag @post, :image, format: 'jpeg', size: "500x300" %>
+    </div>
+
+    <div class="">
+      <span class="under">投稿内容</span>
+    </div>
+<div class="post_show_body">
+    <%= simple_format(@post.body) %>
+  </div>
+
+<div class="post_show_item">
+    </span><span class="under">活動場所</br></span><%= @post.address %></span>
+  </div>
+  <div class="post_show_item">
+    <div id="map"></div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @post.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
+
+

@@ -1,3 +1,81 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post_index{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	max-width: 1000px;
+}
+
+.post_index .post_item{
+	border : solid 1px;
+	border-radius: 5px;
+	margin: 20px;
+}
+.post_index .post_item td{
+	max-width: 250px;
+}
+.prefecture_name{
+	padding: 5px;
+	width: 50px;
+	height: 30px;
+	border: solid 1px ;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+}
+
+.post-pagenate{
+	display: flex;
+	margin: 0 auto;
+}
+.post_show{
+	display: flex;
+	flex-direction: column;
+}
+.post_show_top li{
+	display: inline-block;
+}
+.post_show_top li:nth-child(2),{
+	padding-left: 30px;
+}
+.post_show_top li:nth-child(3),
+.post_show_top li:nth-child(4){
+	padding-left:20px;
+}
+.under{
+	border-bottom: dotted 3px orange;
+}
+.post_show_title{
+	max-width: 400px;
+}
+.post_show_category{
+	padding-left: 30px;
+}
+.post_show_name{
+	padding-left: 30px;
+}
+.post_show_body{
+	max-width: 500px;
+}
+.post_form_title{
+	width: 400px;
+	height: 40px;
+}
+.post_form_body{
+	height: 500px;
+	width: 400px;
+}
+.post_form_postal_code{
+	width: 100px;
+}
+.post_form_address{
+	width: 250px;
+}
+#map{
+	height: 200px;
+	width: 400px;
+}
