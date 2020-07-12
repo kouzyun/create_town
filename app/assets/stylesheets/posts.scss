@@ -9,28 +9,57 @@
 	max-width: 1000px;
 }
 
-
 .post_index .post_item{
 	border : solid 1px;
 	border-radius: 5px;
 	margin: 20px;
 }
-a {
-  text-decoration: none;
-}
+
 .prefecture_name{
-	padding-right: 5px;
+	padding: 5px;
 	width: 50px;
 	height: 30px;
 	border: solid 1px ;
 	border-radius: 50%;
 	display: flex;
-	justify-content: center; /* 追加 */
-  	align-items: center; /* 追加 */
-  	padding-left: 5px;
+	justify-content: center;
+  	align-items: center;
 }
 
 .post-pagenate{
 	display: flex;
 	margin: 0 auto;
+}
+.post_show{
+	display: flex;
+	flex-direction: column;
+}
+.post_show_top li{
+	display: inline-block;
+}
+.post_show_top li:nth-child(2),{
+	padding-left: 30px;
+}
+.post_show_top li:nth-child(3),
+.post_show_top li:nth-child(4){
+	padding-left:20px;
+}
+.under{
+	border-bottom: dotted 3px orange;
+}
+.post_show_title{
+	max-width: 400px;
+}
+.post_show_category{
+	padding-left: 30px;
+}
+.post_show_name{
+	padding-left: 30px;
+}
+.post_show_body{
+	max-width: 500px;
+}
+#map{
+	height: 200px;
+	width: 400px;
 }
