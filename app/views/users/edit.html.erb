@@ -1,2 +1,94 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>マイページ:<%= @user.last_name + @user.first_name %></h1>
+
+<%= form_with(model: @user, local: true) do |f| %>
+
+  <div class="">
+  	<label>
+    <%= f.radio_button :user_status,"なにかしたい",name:"entryPlan", value:"hoge1", onclick:"entryChange1();", checked:"checked" %>
+    <%= f.label :なにかしたい %></label>
+  </div>
+  <div class="">
+  	<label>
+    <%= f.radio_button :user_status, "参加者募集", name:"entryPlan", value:"hoge1", onclick:"entryChange1();" %>
+    <%= f.label :参加者募集 %></label>
+   </div>
+
+  <!----きりかえ1--->
+  <div id="firstBox">
+    <div class="field">
+      <%= f.label :last_name, "名前(性)" %>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :first_name, "名前(名)" %>
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :interest, "やりたいこと" %>
+      <%= f.text_field :interest %>
+    </div>
+
+    <div class="field">
+      <%= f.label :introduction, "紹介文" %>
+      <%= f.text_area :introduction %>
+    </div>
+
+  </div>
+
+
+  <!----きりかえ2--->
+  <div id="secondBox">
+  	<div class="">
+  		<span>----参加者募集者専用追加欄----</span>
+  	</div>
+    <div class="field">
+      <%= f.label :affiliation, "所属" %>
+      <%= f.text_field :affiliation %>
+    </div>
+
+    <div class="field">
+      <%= f.label :job, "職業" %>
+      <%= f.text_field :job %>
+    </div>
+
+    <div class="field">
+      <%= f.label :person, "会いたい人" %>
+      <%= f.text_field :person %>
+    </div>
+
+    <div class="field">
+      <%= f.label :postal_code, "郵便番号" %>
+      <%= f.text_field :postal_code %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address, "住所" %>
+      <%= f.text_field :address %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+function entryChange1(){
+radio = document.getElementsByName('entryPlan')
+if(radio[0].checked) {
+//フォーム
+document.getElementById('firstBox').style.display = "";
+document.getElementById('secondBox').style.display = "none";
+//特典
+}else if(radio[1].checked) {
+//フォーム
+document.getElementById('firstBox').style.display = "";
+document.getElementById('secondBox').style.display = "";
+//特典
+}
+}
+//オンロードさせ、リロード時に選択を保持
+window.onload = entryChange1();
+</script>

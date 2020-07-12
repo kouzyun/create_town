@@ -1,2 +1,16 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<%= link_to "編集", edit_user_path(@user) %>
+
+<div class="user-show">
+	<span>名前(性):<%= @user.last_name %></span>
+	<span>名前:(名)<%= @user.first_name %></span>
+	<span>紹介文<%= @user.introduction %></span>
+	<span>所属:<%= @user.affiliation %></span>
+	<span>職業:<%= @user.job %></span>
+	<span>やりたいこと:<%= @user.interest %></span>
+	<span>会いたい人:<%= @user.person %></span>
+	<span>郵便番号：<%= @user.postal_code %></span>
+	<span>住所:<%= @user.address %></span>
+</div>
