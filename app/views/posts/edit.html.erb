@@ -1,26 +1,35 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>編集フォーム</h1>
 
 
 <%= form_for(@post, url: post_path(@post)) do |f| %>
 	<h4>写真</h4>
-	<%= f.attachment_field :image %>
+	<%= attachment_image_tag @post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
+
+	<div class="">
+		<%= f.attachment_field :image %>
+	</div>
 
 	<h4>タイトル</h4>
-	<%= f.text_field :title %>
-
-	<h4>本文</h4>
-	<%= f.text_area :body %>
+	<%= f.text_field :title , class:"post_form_title"%>
 
 	<h4>カテゴリー</h4>
 	<%= f.select :category , Post.categories.keys  %>
 
+	<h4>本文</h4>
+	<%= f.text_area :body ,class:"post_form_body"%>
+
+	<div class="">
+		<span>-----活動場所があれば住所を記載してください----</span>
+	</div>
+
 	<h4>郵便番号</h4>
-	<%= f.text_field :postal_code %>
+	<%= f.text_field :postal_code ,class:"post_form_postal_code"%>
 
 	<h4>住所</h4>
-	<%= f.text_field :address %>
+	<%= f.text_field :address, class:"post_form_address" %>
 
-	<%= f.submit %>
+	<div class="">
+		<%= f.submit %>
+	</div>
 
 <% end %>

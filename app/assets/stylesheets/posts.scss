@@ -14,7 +14,9 @@
 	border-radius: 5px;
 	margin: 20px;
 }
-
+.post_index .post_item td{
+	max-width: 250px;
+}
 .prefecture_name{
 	padding: 5px;
 	width: 50px;
@@ -58,6 +60,20 @@
 }
 .post_show_body{
 	max-width: 500px;
+}
+.post_form_title{
+	width: 400px;
+	height: 40px;
+}
+.post_form_body{
+	height: 500px;
+	width: 400px;
+}
+.post_form_postal_code{
+	width: 100px;
+}
+.post_form_address{
+	width: 250px;
 }
 #map{
 	height: 200px;
