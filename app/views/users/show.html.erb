@@ -4,6 +4,8 @@
 <%= link_to "編集", edit_user_path(@user) %>
 
 <div class="user-show">
+	<span>ステータス:<%= @user.user_status %></span>
+
 	<span>名前(性):<%= @user.last_name %></span>
 	<span>名前:(名)<%= @user.first_name %></span>
 	<span>紹介文<%= @user.introduction %></span>

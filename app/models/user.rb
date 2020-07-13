@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+
+  enum user_status: { なにかしたい: 0, 参加者募集中: 1},_suffix: true
 end
