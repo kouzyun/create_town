@@ -56,18 +56,17 @@
   width: 300px;
   border-radius: 5px;
 }
-.user_index{
+.user_index_item{
   max-width: 70%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 15px;
 }
-.user_index_item{
+.user_index_box{
   border: solid 1px;
-  margin-bottom: 5px;
   width: 500px;
 }
 .user_index_status{
-
 }
 .user_index_item_image{
   border-radius: 50%;
