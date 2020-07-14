@@ -9,14 +9,12 @@
   align-items: center;
   margin: 0 auto;
 }
-
 .sign_up_form .sign_up_body{
   width: 100%;
   border: solid 1px;
   border-radius: 5px;
   background-color: #e0ffff;
 }
-
 .log_in_form{
 	display:flex;
   flex-direction: column;
@@ -24,15 +22,54 @@
   align-items: center;
   margin: 0 auto;
 }
-
 .log_in_form .log_in_body {
   width: 100%;
   border: solid 1px;
   border-radius: 5px;
   background-color: #e0ffff;
 }
-
-.user-show{
+.user_flex{
+  display: flex;
+  flex-direction: row;
+}
+.user_show{
   display:flex;
   flex-direction: column;
+  max-width: 25%;
+}
+
+.user_show_item{
+  display:flex;
+  flex-direction: column;
+}
+.user_show_introduction{
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+.user_show_image{
+  border-radius: 50%;
+  background-position: left top;
+}
+#profile_map{
+  height: 200px;
+  width: 300px;
+  border-radius: 5px;
+}
+.user_index{
+  max-width: 70%;
+  display: flex;
+  flex-direction: row;
+}
+.user_index_item{
+  border: solid 1px;
+  margin-bottom: 5px;
+  width: 500px;
+}
+.user_index_status{
+
+}
+.user_index_item_image{
+  border-radius: 50%;
+  margin-right: 10px;
 }

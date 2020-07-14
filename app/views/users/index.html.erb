@@ -1,2 +1,18 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
+<% @users.each do |user| %>
+	<div class="user_index">
+		<div class="user_index_item_image">
+			<%= link_to user_path(user) do %>
+				<%= attachment_image_tag user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "50x50", class: "user_index_item_image"%>
+			<% end %>
+		</div>
+		<div class="user_index_item">
+			<div class="user_index_item_name">
+				<%= user.last_name + user.first_name %>
+			</div>
+			<div class="user_index_status">
+				<%= user.user_status %>
+			</div>
+		</div>
+	</div>
+<% end %>

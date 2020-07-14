@@ -6,16 +6,19 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	max-width: 1000px;
+	max-width: 75%;
 }
 
 .post_index .post_item{
 	border : solid 1px;
 	border-radius: 5px;
 	margin: 20px;
+	max-height: 350px;
+	width: 250px;
+	padding-right:5px;
 }
 .post_index .post_item td{
-	max-width: 250px;
+	max-width: 240px;
 }
 .prefecture_name{
 	padding: 5px;

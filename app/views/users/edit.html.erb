@@ -1,15 +1,18 @@
 <h1>マイページ:<%= @user.last_name + @user.first_name %></h1>
 
 <%= form_with(model: @user, local: true) do |f| %>
+  
+  <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
+  <%= f.attachment_field :profile_image %>
 
-  <div id="form1">
+  <div class="form_change">
   	<label>
-    <%= f.radio_button :user_status,:なにかしたい,class:"hoge", value:"なにかしたい", onclick:"entryChange1();", checked:"checked" %>
+    <%= f.radio_button :user_status,:なにかしたい, class:"form_change_item", onclick:"formChange();", checked:"checked" %>
     <%= f.label :なにかしたい %></label>
   </div>
-  <div class="">
+  <div class="form_change">
   	<label>
-    <%= f.radio_button :user_status, :参加者募集中,class:"hoge", value:"参加者募集中", onclick:"entryChange1();" %>
+    <%= f.radio_button :user_status, :参加者募集中, class:"form_change_item", onclick:"formChange();" %>
     <%= f.label :参加者募集中 %></label>
    </div>
 
@@ -75,30 +78,20 @@
 <% end %>
 
 <script type="text/javascript">
-function entryChange1(){
-radio = document.getElementsByClassName('hoge')
-if(radio[0].checked) {
-//フォーム
-document.getElementById('firstBox').style.display = "";
-document.getElementById('secondBox').style.display = "none";
+  function formChange(){
+    radio = document.getElementsByClassName('form_change_item')
+    if(radio[0].checked) {
+    //フォーム
+    document.getElementById('firstBox').style.display = "";
+    document.getElementById('secondBox').style.display = "none";
 
-//特典
-}else if(radio[1].checked) {
-//フォーム
-document.getElementById('firstBox').style.display = "";
-document.getElementById('secondBox').style.display = "";
-//特典
-}
-}
-$('button').click(function() {
-    var r = $('input[name="entryPlan"]:checked').val();
- 
-    console.log(r);
-})
+    }else if(radio[1].checked) {
+    //フォーム
+    document.getElementById('firstBox').style.display = "";
+    document.getElementById('secondBox').style.display = "";
+    }
+  }
 
-
-
-
-//オンロードさせ、リロード時に選択を保持
-window.onload = entryChange1();
+  //オンロードさせ、リロード時に選択を保持
+  window.onload = formChange();
 </script>
