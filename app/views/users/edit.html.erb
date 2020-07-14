@@ -1,19 +1,25 @@
-<h1>マイページ:<%= @user.last_name + @user.first_name %></h1>
+<div class="user-edit">
+  <div class="user-edit__list">
+    <h3>ユーザー情報編集</h3>
+  </div>
 
-<%= form_with(model: @user, local: true) do |f| %>
+  <%= form_with(model: @user, local: true) do |f| %>
   
-  <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
-  <%= f.attachment_field :profile_image %>
+    <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"user--show_image" %>
+    <%= f.attachment_field :profile_image %>
 
   <div class="form_change">
+    <div class="">
+    <span>会員ステータス</span>
+    </div>
   	<label>
-    <%= f.radio_button :user_status,:なにかしたい, class:"form_change_item", onclick:"formChange();", checked:"checked" %>
-    <%= f.label :なにかしたい %></label>
+    <%= f.radio_button :user_status,:なにかしたいです！, class:"form_change_item", onclick:"formChange();", checked:"checked" %>
+    <%= f.label :なにかしたいです！ %></label>
   </div>
   <div class="form_change">
   	<label>
-    <%= f.radio_button :user_status, :参加者募集中, class:"form_change_item", onclick:"formChange();" %>
-    <%= f.label :参加者募集中 %></label>
+    <%= f.radio_button :user_status, :参加者募集中です！, class:"form_change_item", onclick:"formChange();" %>
+    <%= f.label :参加者募集中です！ %></label>
    </div>
 
   <!----きりかえ1--->
@@ -44,7 +50,7 @@
   <!----きりかえ2--->
   <div id="secondBox">
   	<div class="">
-  		<span>----参加者募集者専用追加欄----</span>
+  		<span>----参加者募集中の方は、こちらもご記入ください----</span>
   	</div>
     <div class="field">
       <%= f.label :affiliation, "所属" %>

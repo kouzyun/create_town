@@ -1,70 +1,86 @@
-<div class="user_flex">
-	<div class="user_show">
-		<div class="user_show_title">
-			<h1>マイページ</h1>
+<div class="user-show">
+	<div class="user-show__list">
+		<div class="user-show__list__name">
+			<h3><%= @user.last_name + @user.first_name %>さんのマイページ</h3>
 		</div>
-
 		<div class="">
-			<%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"user_show_image"%>
+			<%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"user-show__list__image"%>
 			<% if current_user.id == @user.id %>
-			<%= link_to "編集", edit_user_path(@user) %>
+				<%= link_to "編集", edit_user_path(@user) %>
 			<% end %>
 		</div>
-
-		<div class="user_show_edit">
+		<div class="user_show__list__status">
+			 <span><%= @user.user_status %></span>
 		</div>
-
-		<div class="user_show_item">
-			<span><%= @user.last_name + @user.first_name %></span>
-			<span>やりたいこと:　<%= @user.interest %></span>
-			<span>会いたい人:　<%= @user.person %></span>
-			<span><%= @user.user_status %></span>
-			<span class="user_show_introduction"><%= simple_format(@user.introduction) %></span>
-			<span>所属:<%= @user.affiliation %></span>
-			<span>職業:<%= @user.job %></span>
-			<span>活動拠点<br/><%= @user.address %></span>
+		<div  class="user-show__list__introduction">
+			<span><%= simple_format(@user.introduction) %></span>
 		</div>
-
-		<div class="user_show_item">
-	    	<div id="profile_map"></div>
-		</div>
-	</div>
-
-	<div class="post_index">
-		<% @posts.each do |post| %>
-			<div class="post_item">
-				<table>
-					<tbody align="center">
-						<tr>
-							<td align="center"><%= link_to post_path(post) do %>
-								<%= attachment_image_tag post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
-								<% end %>
-							</td>
-						</tr>
-						<tr>
-							<td><span><%= post.title %></span></td>
-						</tr>
-
-						<tr>
-							<td><span><%= post.category %></span></td>
-						</tr>
-						<% if post.address.present? %>
-						<tr align="right" >
-							<td>
-								<div class="prefecture_name">
-									<span><%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span>
-								</div>
-							</td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
+		<table border="1" class="user-show__list__table">
+			<tr>
+				<th>やりたいこと</th>
+				<td><%= @user.interest %></td>
+			</tr>
+			<tr>
+				<th>会いたい人</th>
+				<td><% @user.person %></td>
+			</tr>
+			<% if @user.affiliation.present? %>
+				<tr>
+					<th>所属</th>
+					<td>所属:<%= @user.affiliation %></td>
+				</tr>
+			<% end %>
+			<% if @user.job.present? %>
+				<tr>
+					<th>職業</th>
+					<td><%= @user.job %></td>
+				</tr>
+			<% end %>
+		</table>
+		<% if @user.address.present? %>
+			<div class="user-show__list__map">
+				<span>活動地域<br/><%= @user.address %></span>
+		    	<div id="profile_map"></div>
 			</div>
 		<% end %>
+	</div>
 
-		<div  class="post-pagenate">
-			<%= paginate @posts %>
+	
+	<div class="post-index">
+		<div class="post-index__item">
+			<% @posts.each do |post| %>
+				<div class="post-index__item__list">
+					<table>
+						<tbody align="center">
+							<tr>
+								<td><%= link_to post_path(post) do %>
+									<%= attachment_image_tag post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
+									<% end %>
+								</td>
+							</tr>
+							<tr>
+								<td><span><%= post.title %></span></td>
+							</tr>
+
+							<tr>
+								<td><span><%= post.category %></span></td>
+							</tr>
+							<% if post.address.present? %>
+							<tr align="right" >
+								<td>
+									<div class="post-index__item__prefecture-name">
+										<span><%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span>
+									</div>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			<% end %>
 		</div>
+	<div  class="post-index__pagenate">
+		<%= paginate @posts %>
 	</div>
 </div>
 
@@ -102,4 +118,3 @@
 
 
 
-</div>

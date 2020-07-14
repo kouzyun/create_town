@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.post_index{
+.post-index{
+	max-width: 75%;
+}
+.post-index__item{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	max-width: 75%;
 }
-
-.post_index .post_item{
+.post-index__item__list{
 	border : solid 1px;
 	border-radius: 5px;
 	margin: 20px;
@@ -17,10 +18,10 @@
 	width: 250px;
 	padding-right:5px;
 }
-.post_index .post_item td{
+.post-index__item__list td{
 	max-width: 240px;
 }
-.prefecture_name{
+.post-index__item__prefecture-name{
 	padding: 5px;
 	width: 50px;
 	height: 30px;
@@ -30,10 +31,10 @@
 	justify-content: center;
   	align-items: center;
 }
-
-.post-pagenate{
-	display: flex;
-	margin: 0 auto;
+.post-index__pagenate{
+	padding-left: 50px;
+	max-width: 70%;
+	text-align: center;
 }
 .post_show{
 	display: flex;
@@ -52,6 +53,7 @@
 .under{
 	border-bottom: dotted 3px orange;
 }
+
 .post_show_title{
 	max-width: 400px;
 }

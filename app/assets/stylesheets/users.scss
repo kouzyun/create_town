@@ -2,73 +2,89 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.sign_up_form{
+.sign-up{
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
 }
-.sign_up_form .sign_up_body{
+.sign-up__list{
   width: 100%;
   border: solid 1px;
   border-radius: 5px;
   background-color: #e0ffff;
 }
-.log_in_form{
+.log-in{
 	display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
 }
-.log_in_form .log_in_body {
+.log-in__list {
   width: 100%;
   border: solid 1px;
   border-radius: 5px;
   background-color: #e0ffff;
 }
-.user_flex{
+
+.user-show{
   display: flex;
   flex-direction: row;
 }
-.user_show{
+.user-show__list{
   display:flex;
   flex-direction: column;
   max-width: 25%;
 }
-
-.user_show_item{
-  display:flex;
-  flex-direction: column;
+.user-show__list__image{
+  border-radius: 50%;
+  background-position: left top;
 }
-.user_show_introduction{
+.user-show__list__status{
+  width: 150px;
+  height: 30px;
+  border: solid 1px ;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-show__list__introduction{
   border: solid 1px;
   border-radius: 5px;
   padding: 0 10px;
 }
-.user_show_image{
-  border-radius: 50%;
-  background-position: left top;
+.user-show__list__table{
+  margin: 10px 0;
 }
 #profile_map{
   height: 200px;
   width: 300px;
   border-radius: 5px;
 }
-.user_index_item{
+
+.user-index{
+  width: 75%;
+}
+.user-index__item{
   max-width: 70%;
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
 }
-.user_index_box{
+.user-index__item__image{
+  margin-right: 15px;
+}
+.user-index__item__image-shape{
+  border-radius: 50%;
+}
+.user-index__item__list{
   border: solid 1px;
   width: 500px;
 }
-.user_index_status{
-}
-.user_index_item_image{
-  border-radius: 50%;
-  margin-right: 10px;
+
+.user-index__pagenate{
+  padding-left: 200px;
 }
