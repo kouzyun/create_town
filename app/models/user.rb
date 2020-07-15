@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  enum user_status: { なにかしたいです！: 0, 参加者募集中です！: 1},_suffix: true
+  enum user_status: { なにかしたいです！: 0, 参加者探してます！: 1},_suffix: true
 
   attachment :profile_image
 

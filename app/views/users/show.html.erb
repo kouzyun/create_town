@@ -20,14 +20,16 @@
 				<th>やりたいこと</th>
 				<td><%= @user.interest %></td>
 			</tr>
+			<% if @user.person.present? %>
 			<tr>
 				<th>会いたい人</th>
-				<td><% @user.person %></td>
+				<td><%= @user.person %></td>
 			</tr>
+			<% end %>
 			<% if @user.affiliation.present? %>
 				<tr>
 					<th>所属</th>
-					<td>所属:<%= @user.affiliation %></td>
+					<td><%= @user.affiliation %></td>
 				</tr>
 			<% end %>
 			<% if @user.job.present? %>

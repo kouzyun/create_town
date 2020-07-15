@@ -1,100 +1,130 @@
 <div class="user-edit">
-  <div class="user-edit__list">
+  <div class="user-edit__title">
     <h3>ユーザー情報編集</h3>
   </div>
 
   <%= form_with(model: @user, local: true) do |f| %>
-  
-    <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"user--show_image" %>
+    <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"user-edit__image" %>
     <%= f.attachment_field :profile_image %>
 
-  <div class="form_change">
-    <div class="">
-    <span>会員ステータス</span>
+  <div class="user-edit__status">
+    <div class="user-edit__form-change">
+      <div class="">
+        <span>会員ステータス</span>
+      </div>
+    	<label>
+        <%= f.radio_button :user_status,:なにかしたいです！, class:"user-edit__form-change__item", onclick:"formChange();", checked:"checked" %>
+        <%= f.label :なにかしたいです！ %>
+      </label>
     </div>
-  	<label>
-    <%= f.radio_button :user_status,:なにかしたいです！, class:"form_change_item", onclick:"formChange();", checked:"checked" %>
-    <%= f.label :なにかしたいです！ %></label>
+    <div class="user-edit__form-change">
+    	<label>
+        <%= f.radio_button :user_status, :参加者探してます！, class:"user-edit__form-change__item", onclick:"formChange();" %>
+        <%= f.label :参加者探してます！ %>
+      </label>
+    </div>
   </div>
-  <div class="form_change">
-  	<label>
-    <%= f.radio_button :user_status, :参加者募集中です！, class:"form_change_item", onclick:"formChange();" %>
-    <%= f.label :参加者募集中です！ %></label>
-   </div>
 
   <!----きりかえ1--->
-  <div id="firstBox">
-    <div class="field">
-      <%= f.label :last_name, "名前(性)" %>
-      <%= f.text_field :last_name %>
-    </div>
+  <div id="first_box">
+    <table class="user_edit__table">
+      <tbody>
+        <tr>
+          <td>
+          <%= f.label :last_name, "名前(性)" %></td>
+          <td>
+          <%= f.text_field :last_name, class:"user-edit__table1__item user-edit__table__last-name" %>
+          </td>
+        </tr>
 
-    <div class="field">
-      <%= f.label :first_name, "名前(名)" %>
-      <%= f.text_field :first_name %>
-    </div>
+        <tr>
+          <td>
+        <%= f.label :first_name, "名前(名)" %></td>
+          <td><%= f.text_field :first_name, class:"user-edit__table1__item user-edit__table__first-name" %></td>
+        </tr>
 
-    <div class="field">
-      <%= f.label :interest, "やりたいこと" %>
-      <%= f.text_field :interest %>
-    </div>
+        <tr>
+          <td>
+        <%= f.label :interest, "やりたいこと" %></td>
+          <td><%= f.text_field :interest, class:"user-edit__table1__item user-edit__table__interest" %></td>
+        </tr>
 
-    <div class="field">
-      <%= f.label :introduction, "紹介文" %>
-      <%= f.text_area :introduction %>
-    </div>
-
+        <tr>
+          <td>
+          <%= f.label :introduction, "紹介文" %></td>
+          <td>
+          <%= f.text_area :introduction, class:"user-edit__table1__item user-edit__table__introduction" %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 
   <!----きりかえ2--->
-  <div id="secondBox">
-  	<div class="">
-  		<span>----参加者募集中の方は、こちらもご記入ください----</span>
+  <div id="second_box">
+  	<div class="user-edit_attention">
+  		<span>----参加者を探されている方は、こちらもご記入ください----</span>
   	</div>
-    <div class="field">
-      <%= f.label :affiliation, "所属" %>
-      <%= f.text_field :affiliation %>
-    </div>
+    <table>
+      <tbody>
+    <tr>
+      <td>
+      <%= f.label :affiliation, "所属" %></td>
+      <td><%= f.text_field :affiliation, class:"user-edit__table2__item" %></td>
+    </tr>
 
-    <div class="field">
-      <%= f.label :job, "職業" %>
-      <%= f.text_field :job %>
-    </div>
+    <tr>
+      <td>
+      <%= f.label :job, "職業" %></td>
+      <td>
+      <%= f.text_field :job, class:"user-edit__table2__item"%></td>
+    </tr>
 
-    <div class="field">
-      <%= f.label :person, "会いたい人" %>
-      <%= f.text_field :person %>
-    </div>
+    <tr>
+      <td>
+      <%= f.label :person, "会いたい人" %></td>
+      <td>
+      <%= f.text_field :person, class:"user-edit__table2__item" %></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="user-edit__table2__attention">
+    <span >----活動拠点がある方は、住所をご記入ください----</span>
+    </td>
+  </tr>
+    <tr>
+      <td>
+      <%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+      <td>
+      <%= f.text_field :postal_code, class:"user-edit__table2__item" %></td>
+    </tr>
 
-    <div class="field">
-      <%= f.label :postal_code, "郵便番号" %>
-      <%= f.text_field :postal_code %>
-    </div>
-
-    <div class="field">
-      <%= f.label :address, "住所" %>
-      <%= f.text_field :address %>
-    </div>
+    <tr>
+      <td>
+      <%= f.label :address, "住所" %></td>
+      <td>
+      <%= f.text_field :address, class:"user-edit__table2__item" %></td>
+    </tr>
+  </tbody>
+</table>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="user-edit__action">
+    <%= f.submit "保存" %>
   </div>
 <% end %>
 
 <script type="text/javascript">
   function formChange(){
-    radio = document.getElementsByClassName('form_change_item')
+    radio = document.getElementsByClassName('user-edit__form-change__item')
     if(radio[0].checked) {
     //フォーム
-    document.getElementById('firstBox').style.display = "";
-    document.getElementById('secondBox').style.display = "none";
+    document.getElementById('first_box').style.display = "";
+    document.getElementById('second_box').style.display = "none";
 
     }else if(radio[1].checked) {
     //フォーム
-    document.getElementById('firstBox').style.display = "";
-    document.getElementById('secondBox').style.display = "";
+    document.getElementById('first_box').style.display = "";
+    document.getElementById('second_box').style.display = "";
     }
   }
 
