@@ -1,6 +1,7 @@
 <div class="post-index">
 	<div class="post-index__title">
 		<h3>投稿一覧</h3>
+		 <%= flash[:success] %>
 	</div>
 	<div class="post-index__item">
 		<% @posts.each do |post| %>

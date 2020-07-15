@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :interest, length: { minimum: 1 }, on: :update
   validates :introduction, length: {minimum: 1}, on: :update
   validates :user_status, presence: true, on: :update
-  validates :postal_code, allow_nil: true, format: { with: /\A\d{7}\z/ }
-  validates :address, allow_nil: true, length: { minimum: 2}
+  validates :postal_code, format: { with: /\A\d{7}\z/ }, allow_blank: true
+  validates :address, length: { minimum: 3}, allow_blank: true
 
 end

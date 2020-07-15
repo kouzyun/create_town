@@ -8,8 +8,8 @@ class Post < ApplicationRecord
 	geocoded_by :address
 	after_validation :geocode
 
-	validates :title, :body, presence: true
+	validates :title, :body, length: {minimum: 5}
 	validates :category, presence: :true
-	validates :postal_code, allow_nil: true, format: { with: /\A\d{7}\z/ }
-	validates :address, allow_nil: true, length: {minimum: 1}
+	validates :postal_code, format: { with: /\A\d{7}\z/ }, allow_blank: true
+	validates :address, length: {minimum: 3}, allow_blank: true
 end
