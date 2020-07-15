@@ -2,22 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.post_index{
+.post-index{
+	max-width: 75%;
+}
+.post-index__item{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	max-width: 1000px;
 }
-
-.post_index .post_item{
+.post-index__item__list{
 	border : solid 1px;
 	border-radius: 5px;
 	margin: 20px;
+	max-height: 350px;
+	width: 250px;
+	padding-right:5px;
 }
-.post_index .post_item td{
-	max-width: 250px;
+.post-index__item__list td{
+	max-width: 240px;
 }
-.prefecture_name{
+.post-index__item__prefecture-name{
 	padding: 5px;
 	width: 50px;
 	height: 30px;
@@ -27,55 +31,74 @@
 	justify-content: center;
   	align-items: center;
 }
-
-.post-pagenate{
-	display: flex;
-	margin: 0 auto;
+.post-index__pagenate{
+	padding-left: 50px;
+	max-width: 70%;
+	text-align: center;
 }
-.post_show{
+.post-show{
 	display: flex;
 	flex-direction: column;
+	max-width: 75%;
 }
-.post_show_top li{
+.post-show__list li{
 	display: inline-block;
 }
-.post_show_top li:nth-child(2),{
+.post-show__list__title{
+	max-width: 400px;
+}
+.post-show__list__prefecture{
 	padding-left: 30px;
 }
-.post_show_top li:nth-child(3),
-.post_show_top li:nth-child(4){
+.post-show__list li:nth-child(3),
+.post-show__list li:nth-child(4){
 	padding-left:20px;
 }
 .under{
 	border-bottom: dotted 3px orange;
 }
-.post_show_title{
-	max-width: 400px;
+
+.post-show__list__user-info{
+	padding-left: 35px;
+	display:flex;
+	align-items: center;
 }
-.post_show_category{
-	padding-left: 30px;
+.post-show__list__user-info > div {
+	padding-right: 20px;
 }
-.post_show_name{
-	padding-left: 30px;
+
+.post-show__list__category{
+	margin-top: 10px;
 }
-.post_show_body{
+.post-show__list__body{
 	max-width: 500px;
+	border: solid 1px;
+	border-radius: 5px;
 }
-.post_form_title{
-	width: 400px;
-	height: 40px;
-}
-.post_form_body{
-	height: 500px;
-	width: 400px;
-}
-.post_form_postal_code{
-	width: 100px;
-}
-.post_form_address{
-	width: 250px;
+.post-show__list__place{
+	padding-top: 10px;
 }
 #map{
 	height: 200px;
 	width: 400px;
+}
+.post-new__item{
+	margin-bottom: 10px;
+}
+.post-new__item__title{
+	width: 400px;
+	height: 40px;
+}
+.post-new__item__body{
+	height: 500px;
+	width: 400px;
+}
+.post-new__category{
+	margin-top: 40px;
+}
+.post-new__item__postal-code{
+	width: 250px;
+}
+.post-new__item__address{
+	width: 250px;
 }

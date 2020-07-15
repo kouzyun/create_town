@@ -16,7 +16,8 @@
           <nav>
             <ul class="">
               <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
-              <li><%= link_to '商品一覧', posts_path %></li>
+              <li><%= link_to '投稿一覧', posts_path %></li>
+              <li><%= link_to 'ユーザー一覧',users_path %></li>
               <li><%= link_to '投稿する', new_post_path %></li>
               <li><%= link_to 'ログアウト', users_sign_out_path, method: :delete %></li>
             </ul>
@@ -28,6 +29,7 @@
           <nav>
           <ul class="">
             <li><%= link_to 'トップ', root_path %></li>
+            <li><%= link_to 'アバウト', about_path %></li>
             <li><%= link_to '新規登録', users_sign_up_path %></li>
             <li><%= link_to 'ログイン', users_sign_in_path %></li>
           </ul>
@@ -35,10 +37,8 @@
       </header>
     <% end %>
 
-
-
-
     <main>
+      <%= flash[:notice] %>
       <%= yield %>
     </main>
   </body>

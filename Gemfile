@@ -73,3 +73,9 @@ gem "geocoder"
 gem "dotenv-rails"
 
 gem 'kaminari', '~> 1.2.1'
+
+gem 'jquery-rails'
+
+gem 'gimei'
+
+gem 'rails-i18n'
