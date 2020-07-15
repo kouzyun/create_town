@@ -2,6 +2,10 @@
 
   <h3>ログイン</h3>
 
+  <div class="login-error row">
+    <%= flash[:error] %>
+  </div>
+
   <%= form_for(resource, as: resource_name, url: users_sign_in_path) do |f| %>
 
     <div class="log-in__list">

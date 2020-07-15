@@ -12,4 +12,12 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :interest, length: { minimum: 1 }, on: :update
+  validates :introduction, length: {minimum: 1}, on: :update
+  validates :user_status, presence: true, on: :update
+  validates :postal_code, allow_nil: true, format: { with: /\A\d{7}\z/ }
+
 end

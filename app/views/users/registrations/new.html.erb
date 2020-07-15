@@ -3,7 +3,9 @@
   <h3 class="sign_up_title">新規登録</h3>
 
   <%= form_for(resource, as: resource_name, url: users_path) do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
+    <div class="">
+      <%= render 'layouts/error_messages', model: resource %>
+    </div>
     
     <div class="sign-up__list">
       <table>

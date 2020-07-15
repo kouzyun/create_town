@@ -8,5 +8,8 @@ class Post < ApplicationRecord
 	geocoded_by :address
 	after_validation :geocode
 
-	validates :title, :body, presence: { message: ':必ず1文字以上入力してください。' }
+	validates :title, :body, presence: true
+	validates :category, presence: :true
+	validates :postal_code, allow_nil: true, format: { with: /\A\d{7}\z/ }
+	validates :address, allow_nil: true, length: {minimum: 1}
 end

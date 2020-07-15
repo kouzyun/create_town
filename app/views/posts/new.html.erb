@@ -3,6 +3,10 @@
 		<h3>新規登録</h3>
 	</div>
 
+	<div class="">
+    	<%= render 'layouts/error_messages', model: @post %>
+ 	</div>
+
 	<%= form_with(model: @post, local: true) do |f| %>
 	<div class="post-new__item post-new__picture">
 		<%= attachment_image_tag @post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
