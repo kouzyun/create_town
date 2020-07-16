@@ -31,7 +31,11 @@
       <div class="post-show__list__user-info__name">
         <%= @post.user.last_name + @post.user.first_name %>
       </div>
-    </div>
+      <ol>
+        <li><i class="far fa-comment"></i></li>
+        <li><%= @post.comments.count %></li>
+      </ol>
+  </div>
   </div>
 
   <div class="post-show__list__picture">
@@ -52,6 +56,45 @@
       <div id="map"></div>
     </div>
   <% end %>
+
+
+  <div class="post-show__comment">
+    <p>コメント</p>
+      <div class="post-show__comment__content">
+        <% @post.comments.each do |comment| %>
+          <table>
+            <tbody>
+                <td>
+                  <%= link_to user_path(comment.user) do %>
+                    <%= attachment_image_tag comment.user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "30x30", class:"user-show__list__image"%>
+                  <% end %>
+                </td>
+                <td>
+                  <%= comment.user.last_name %>さん
+                </td>
+              <td>
+              <%=  comment.content %>
+              </td>
+              <% if comment.user == current_user%>
+                <td>
+                  <%= link_to "削除", post_comment_path(@post, comment), method: :delete %>
+                </td>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+
+    <div class="post-show__comment__form">
+      <%= form_for [@post, @comment] do |f| %>
+        <div class="">
+            <%= f.text_area :content, class:"post-show__comment__form-body" %>
+        </div>
+        <%= f.submit "送信する" %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
 
 <script type="text/javascript">
