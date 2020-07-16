@@ -7,14 +7,17 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 		@comment.post_id = @post.id
 		@comment.save
-		redirect_to post_path(post)
+		redirect_to post_path(@post)
 	end
 
 	def destroy
 		@post = Post.find(params[:post_id])
 		comment = @post.comments.find(params[:id])
-		comment.destroy
-    	redirect_to post_path(params[:post_id])
+		if comment.destroy
+    		redirect_to post_path(params[:post_id])
+    	else
+    		render 'posts/show'
+    	end
 	end
 
 	private
