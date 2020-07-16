@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   enum user_status: { なにかしたいです！: 0, 参加者探してます！: 1},_suffix: true
 

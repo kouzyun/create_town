@@ -2,6 +2,12 @@ class Post < ApplicationRecord
 	belongs_to :user
 	attachment :image
 	has_many :comments, dependent: :destroy
+	has_many :favorites, dependent: :destroy
+
+	#ユーザーidがfavoritesテーブルに存在しているか調べる
+	def favorited_by?(user)
+		favorites.where(user_id: user.id).exists?
+	end
 
 	enum category: { 参加者募集中！: 0, 考え事: 1, イベント開催します！: 2 },_suffix: true
 
