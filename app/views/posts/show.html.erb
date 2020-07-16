@@ -52,6 +52,27 @@
       <div id="map"></div>
     </div>
   <% end %>
+
+
+  <% @post.comments.each do |comment| %>
+   <%= comment.user.last_name %>
+   <%=  comment.content %>
+   <% if comment.user == current_user%>
+    <div>
+      <%= link_to "削除", post_comment_path(@post, comment), method: :delete %>
+    </div>
+  <% end %>
+  <% end %>
+
+  <%= form_for [@post, @comment] do |f| %>
+    <div class="">
+      <div class="">
+        <%= f.text_area :content %>
+      </div>
+    </div>
+    <%= f.submit "送信する" %>
+  <% end %>
+
 </div>
 
 <script type="text/javascript">
