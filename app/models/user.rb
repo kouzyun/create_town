@@ -8,6 +8,23 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  has_many :follow, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+    has_many :following_user, through: :follow, source: :followed
+    has_many :follower_user, through: :followed, source: :follow
+
+    def following(user_id)
+      follow.create(followed_id: user_id)
+    end
+
+    def unfollow(user_id)
+      follow.find_by(followed_id: user_id).destroy
+    end
+
+    def following?(user)
+      following_user.include?(user)
+    end
+
   enum user_status: { なにかしたいです！: 0, 参加者探してます！: 1},_suffix: true
 
   attachment :profile_image

@@ -9,6 +9,14 @@
 				<%= link_to "編集", edit_user_path(@user) %>
 			<% end %>
 		</div>
+		<div class="">
+			<% if current_user.following?(@user) %>
+	        <li>
+	          <%= link_to "フォロー外す", user_relationship_path(@user.id), method: :delete %></li>
+	        <% else %>
+	          <li><%= link_to "フォローする", user_relationships_path(@user.id), method: :post %></li>
+	        <% end %>
+	    </div>
 		<% if @user.interest.present? && @user.introduction.present? %>
 			<div class="user_show__list__status">
 				 <span><%= @user.user_status %></span>
