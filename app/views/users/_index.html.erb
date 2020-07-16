@@ -1,0 +1,28 @@
+<div class="">
+	<% users.each do |user| %>
+		<div class="user-index__item">
+			<div class="user-index__item__image">
+				<%= link_to user_path(user) do %>
+					<%= attachment_image_tag user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "50x50", class: "user-index__item__image-shape"%>
+				<% end %>
+			</div>
+			<div class="user-index__item__list">
+				<div class="user-index__item__list__name">
+					<%= link_to user_path(user) do %>
+						<%= user.last_name + user.first_name %>
+					<% end %>
+				</div>
+				<% if user.interest.present? %>
+					<div class="user-index__item__list__interest">
+						<span>やりたいこと：<%= user.interest %></span>
+					</div>
+				<% end %>
+				<% if user.user_status.present? %>
+					<div class="user-index__item__list__user-status">
+						<span>ステータス:<%= user.user_status %></span>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

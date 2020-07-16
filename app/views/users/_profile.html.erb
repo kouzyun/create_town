@@ -1,0 +1,62 @@
+<div class="">
+	<%= attachment_image_tag user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"user-show__list__image"%>
+		<% if current_user.id == user.id %>
+			<%= link_to "編集", edit_user_path(user) %>
+		<% end %>
+</div>
+
+<% if user.interest.present? && user.introduction.present? %>
+	<div class="user-show__list__status">
+		<span><%= user.user_status %></span>
+	</div>
+	<div class="user-show__list__follow">
+		<% if current_user.following?(user) %>
+	        <%= link_to "フォロー中", user_relationship_path(user.id), method: :delete, class:"btn-primary" %>
+		<% else %>
+		    <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class:"btn-primary" %>
+		<% end %>
+	</div>
+	<div  class="user-show__list__introduction">
+		<span><%= simple_format(user.introduction) %></span>
+	</div>
+	<table border="1" class="user-show__list__table">
+		<tr>
+			<th>フォロー数</th>
+			<td><%= link_to user.follow.count, user_follows_path(user) %></td>
+		</tr>
+		<tr>
+			<th>フォロワー数</th>
+			<td><%= link_to user.followed.count, user_followers_path(user) %></td>
+		</tr>
+		<tr>
+			<th>やりたいこと</th>
+			<td><%= user.interest %></td>
+		</tr>
+		<% if user.person.present? %>
+		<tr>
+			<th>会いたい人</th>
+			<td><%= user.person %></td>
+		</tr>
+		<% end %>
+		<% if user.affiliation.present? %>
+			<tr>
+				<th>所属</th>
+				<td><%= user.affiliation %></td>
+			</tr>
+		<% end %>
+		<% if user.job.present? %>
+			<tr>
+				<th>職業</th>
+				<td><%= user.job %></td>
+			</tr>
+		<% end %>
+	</table>
+	<% if user.address.present? %>
+		<div class="user-show__list__map">
+			<span>活動地域<br/><%= user.address %></span>
+			<div id="profile_map"></div>
+		</div>
+	<% end %>
+<% else %>
+<p>まだ<%= user.last_name%>さんの情報は未入力です。</p>
+<% end %>

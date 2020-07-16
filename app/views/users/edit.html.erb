@@ -120,17 +120,17 @@
   function formChange(){
     radio = document.getElementsByClassName('user-edit__form-change__item')
     if(radio[0].checked) {
-    //フォーム
+    //なにかしだいです！が選択された時、first_boxのみ表示する
     document.getElementById('first_box').style.display = "";
     document.getElementById('second_box').style.display = "none";
 
     }else if(radio[1].checked) {
-    //フォーム
+    //参加者募集中です！が選択された時、first_boxとsecond_boxの両方を表示させる
     document.getElementById('first_box').style.display = "";
     document.getElementById('second_box').style.display = "";
     }
   }
 
-  //オンロードさせ、リロード時に選択を保持
+  //リロード時に選択を保持させる
   window.onload = formChange();
 </script>

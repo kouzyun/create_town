@@ -64,7 +64,6 @@
   width: 300px;
   border-radius: 5px;
 }
-
 .user-index{
   width: 75%;
 }
@@ -109,4 +108,20 @@
 }
 .user-edit__table2__attention{
   padding-top: 20px;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 5px;
+  font-size: 90%;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-primary:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
 }
