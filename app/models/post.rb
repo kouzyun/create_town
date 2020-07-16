@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 	belongs_to :user
 	attachment :image
+	has_many :comments, dependent: :destroy
 
 	enum category: { 参加者募集中！: 0, 考え事: 1, イベント開催します！: 2 },_suffix: true
 
