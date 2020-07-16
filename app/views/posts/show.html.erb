@@ -34,6 +34,21 @@
       <ol>
         <li><i class="far fa-comment"></i></li>
         <li><%= @post.comments.count %></li>
+        <% if @post.favorited_by?(current_user) %>
+        <li>
+          <%= link_to post_favorite_path(@post), method: :delete do %>
+            <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+            <% end %>
+             <%= @post.favorites.count %> いいね
+        </li>
+        <% else %>
+        <li><%= link_to post_favorites_path(@post), method: :post do %>
+            <i class="fas fa-heart" aria-hidden="true" style="color: grey;"></i>
+              <% end %>
+            <%= @post.favorites.count %> いいね
+          
+        </li>
+        <% end %>
       </ol>
   </div>
   </div>
