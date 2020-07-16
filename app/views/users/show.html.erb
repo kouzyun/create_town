@@ -11,10 +11,12 @@
 		</div>
 		<div class="">
 			<% if current_user.following?(@user) %>
-	    
-	          <%= link_to "フォロー外す", user_relationship_path(@user.id), method: :delete %>
+	        <li>
+	          <%= link_to "フォロー外す", user_relationship_path(@user.id), method: :delete %></li>
 	        <% else %>
-	          <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+	          <li>
+	          	<%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+	          </li>
 	        <% end %>
 	    </div>
 		<% if @user.interest.present? && @user.introduction.present? %>
@@ -25,6 +27,13 @@
 				<span><%= simple_format(@user.introduction) %></span>
 			</div>
 			<table border="1" class="user-show__list__table">
+				<tr>
+					<th>フォロー数</th>
+					<td><%= link_to @user.follow.count, user_follows_path(@user) %></td>
+				</tr>
+				<tr>
+					<th>フォロワー数</th>
+					<td><%= link_to @user.followed.count, user_followers_path(@user) %></td>
 				<tr>
 					<th>やりたいこと</th>
 					<td><%= @user.interest %></td>
