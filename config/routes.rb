@@ -30,4 +30,9 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy] #いいね
   end
 
+
+  #検索コーナー
+  get 'post_search' => 'posts#search'
+  get 'user_search' => 'users#search'
+
 end

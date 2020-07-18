@@ -11,8 +11,8 @@ class User < ApplicationRecord
   #フォロー機能の多対多のリレーション設定
   has_many :follow, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy #フォローしているユーザーを取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォロワーを取得
-    has_many :following_user, through: :follow, source: :followed #自分がフォローしているユーザーを取得
-    has_many :follower_user, through: :followed, source: :followed #自分のフォロワーを取得
+  has_many :following_user, through: :follow, source: :followed #自分がフォローしているユーザーを取得
+  has_many :follower_user, through: :followed, source: :followed #自分のフォロワーを取得
 
 
     #フォローする
@@ -27,6 +27,13 @@ class User < ApplicationRecord
     #フォローしていればtrueを返す
     def following?(user)
       following_user.include?(user)
+    end
+
+    #ユーザーキーワード検索機能
+    def self.search(search)
+      if search
+        User.where(['last_name LIKE ? OR first_name LIKE ? OR introduction LIKE ? OR affiliation LIKE ? OR job LIKE ? OR interest LIKE ? OR person LIKE ? OR address LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      end
     end
 
   enum user_status: { なにかしたいです！: 0, 参加者探してます！: 1},_suffix: true

@@ -19,7 +19,7 @@
             </tr>
             <tr>
               <td>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"40x10" %>
               </td>
             </tr>
             <tr>
@@ -27,7 +27,7 @@
                 <%= f.label :password, "パスワード" %></td>
             </tr>
             <tr>
-              <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password", :size=>"40x10" %></td>
             </tr>
             <tr>
               <td>
