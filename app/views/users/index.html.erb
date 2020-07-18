@@ -1,47 +1,14 @@
 <div class="container main">
 	<div class="row">
-		<h3><span class="under">ユーザー一覧</span></h3>
-	</div>
-	
-	<% @users.each do |user| %>
-		<div class="user-index row">
-			<div class="col col-sm-1">
-				<%= link_to user_path(user) do %>
-					<%= attachment_image_tag user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "70x70", class: "profile-image"%>
-				<% end %>
-			</div>
-			<div class="table-layout user-index__item col col-sm-7">
-				<table class="">
-					<tbody>
-						<tr>
-							<td>
-							<%= link_to user_path(user) do %>
-								<%= user.last_name + user.first_name %>
-							<% end %>
-							</td>
-						</tr>
-					
-						<% if user.interest.present? %>
-						<tr>
-							<td>
-								<span>やりたいこと：<%= user.interest %></span>
-							</td>
-						</tr>
-						<% end %>
-						<% if user.user_status.present? %>
-						<tr>
-							<td>
-								<span><%= user.user_status %></span>
-							</td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
+		<div class="col col-sm-2">
+			<%= render 'layouts/search-form' %>
 		</div>
-	<% end %>
+		<div class="col col-sm-10">
+			<%= render 'user-list', users: @users %>
+		</div>
 
-	<div  class="row">
-		<span><%= paginate @users %></span>
+		<div  class="row">
+			<span><%= paginate @users %></span>
+		</div>
 	</div>
 </div>

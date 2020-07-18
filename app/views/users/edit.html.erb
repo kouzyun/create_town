@@ -57,7 +57,7 @@
             <tr>
               <td><%= f.label :interest, "やりたいこと" %></td></tr>
               <tr>
-              <td><%= f.text_field :interest %></td>
+              <td><%= f.text_field :interest, :size=>"40x10" %></td>
             </tr>
 
             <tr>
@@ -82,12 +82,12 @@
             <tr>
               <td><%= f.label :affiliation, "所属" %></td></tr>
               <tr>
-              <td><%= f.text_field :affiliation %></td>
+              <td><%= f.text_field :affiliation, :size=>"40x10" %></td>
             </tr>
 
             <tr>
               <td><%= f.label :job, "職業" %></td></tr>
-              <td><%= f.text_field :job %></td>
+              <td><%= f.text_field :job, :size=>"40x10" %></td>
             </tr>
 
             <tr>
@@ -95,7 +95,7 @@
             </tr>
             <tr>
               <td>
-                  <%= f.text_field :person %></td>
+                  <%= f.text_field :person, :size=>"40x10" %></td>
             </tr>
             <tr>
               <td colspan="2">
@@ -116,7 +116,7 @@
               <td><%= f.label :address, "住所" %></td>
             </tr>
             <tr>
-              <td><%= f.text_field :address %></td>
+              <td><%= f.text_field :address, :size=>"40x10" %></td>
             </tr>
           </tbody>
         </table>

@@ -1,11 +1,7 @@
 <div class="container main">
-	<div class="row">
-		<h3><span class="under">投稿一覧</span></h3>
-		<%= flash[:success] %>
-	</div>
 	<div class="row" >
-		<div class="col col-sm-2" style="border: 1px solid">
-		検索
+		<div class="col col-sm-2">
+			<%= render 'layouts/search-form' %>
 		</div>
 		<div class="col col-sm-10">
 			<div class="row">
