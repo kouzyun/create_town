@@ -1,0 +1,37 @@
+<div class="">
+	<%= render 'layouts/error_messages', model: post %>
+</div>
+<%= form_with(model: post, local: true) do |f| %>
+<div class="">
+<%= attachment_image_tag post, :image,format: 'jpeg', fallback: "Noimage.png" ,  size: "250x150"%>
+</div>
+<div class="">
+	<%= f.attachment_field :image,class:"file-select" %>
+</div>
+<div class="">
+	<p>タイトル</p>
+	<%= f.text_field :title %>
+</div>
+<div class="">
+	<h5>カテゴリー</h5>
+	<%= f.select :category , Post.categories.keys ,prompt: "-- 選択してください --" %>
+</div>
+<div class="">
+	<h5>本文</h5>
+	<%= f.text_area :body %>
+</div>
+<div class="">
+	<h5>-----活動場所があれば住所を記載してください----</h5>
+</div>
+<div class="">
+	<h5>郵便番号(ハイフンなし)</h5>
+	<%= f.text_field :postal_code %>
+</div>
+<div class="">
+	<h5>住所</h5>
+	<%= f.text_field :address  %>
+</div>
+<div class="">
+	<%= f.submit "投稿する" %>
+</div>
+<% end %>

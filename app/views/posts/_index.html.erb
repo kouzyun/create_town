@@ -1,35 +1,27 @@
-<div class="post-index__item">
-	<% posts.each do |post| %>
-		<div class="post-index__item__list">
-			<table>
-				<tbody align="center">
-					<tr>
-						<td><%= link_to post_path(post) do %>
-								<%= attachment_image_tag post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
-							<% end %>
-						</td>
-					</tr>
-					<tr>
-						<td><span><%= post.title %></span></td>
-					</tr>
-
-					<tr>
-						<td><span><%= post.category %></span></td>
-					</tr>
-					<% if post.address.present? %>
-					<tr align="right" >
-						<td>
-							<div class="post-index__item__prefecture-name">
-								<span><%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span>
-							</div>
-						</td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
-	<% end %>
-</div>
-<div  class="post-index__pagenate">
-	<%= paginate posts %>
-</div>
+<% posts.each do |post| %>
+	<div class="col col-sm-4 pull-left posts-index">
+		<table class="table-layout post-index__table  table-borderless">
+			<tbody align="center">
+				<tr class="">
+					<td><%= link_to post_path(post) do %>
+							<%= attachment_image_tag post, :image,format: 'jpeg', fallback: "Noimage.png" ,  size: "250x150"%>
+						<% end %>
+					</td>
+				</tr>
+				<tr class="">
+					<td><span><%= post.title %></span></td>
+				</tr>
+				<tr class="">
+					<td><span><%= post.category %></span></td>
+				</tr>
+				<% if post.address.present? %>
+				<tr>
+					<td>
+						<%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+<% end %>

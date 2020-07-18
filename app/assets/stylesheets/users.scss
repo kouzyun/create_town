@@ -2,126 +2,69 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.sign-up{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-.sign-up__list{
-  width: 100%;
-  border: solid 1px;
-  border-radius: 5px;
-  background-color: #e0ffff;
-}
-.log-in{
-	display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-.log-in__list {
-  width: 100%;
-  border: solid 1px;
-  border-radius: 5px;
-  background-color: #e0ffff;
-}
 
-.user-show{
-  display: flex;
-  flex-direction: row;
-}
-.user-show__list{
-  display:flex;
-  flex-direction: column;
-  max-width: 25%;
-}
-.user-show__list__image{
-  border-radius: 50%;
-  background-position: left top;
-}
-.user-show__list__status{
-  width: 150px;
-  height: 30px;
-  border: solid 1px ;
-  border-radius: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.user-show__list__introduction{
-  border: solid 1px;
-  border-radius: 5px;
-  padding: 0 10px;
-}
-.user-show__list__table{
-  margin: 10px 0;
-}
-#profile_map{
-  height: 200px;
-  width: 300px;
-  border-radius: 5px;
-}
 .user-index{
-  width: 75%;
+	margin-bottom: 20px;
+}
+.user-index__table{
+	width:400px;
+}
+.profile-image{
+	border-radius: 50%;
 }
 .user-index__item{
-  max-width: 70%;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 15px;
+	margin-left: 20px;
 }
-.user-index__item__image{
-  margin-right: 15px;
+
+#profile_map{
+	height:200px;
+	width: 400px;
 }
-.user-index__item__image-shape{
-  border-radius: 50%;
+.user-show__status{
+	padding-top:15px;
 }
-.user-index__item__list{
-  border: solid 1px;
-  width: 500px;
+.user-show__introduction{
+	padding-top: 15px;
 }
-.user-index__pagenate{
-  padding-left: 200px;
+.user-show__post-index{
+	margin: 30px 0;
+	border-top: 1px solid;
 }
-.user-edit__image{
-  border-radius: 50%;
-  background-position: left top;
+.user-edit{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
 }
-.user-edit__status{
-  margin-top:10px;
+.user-edit__title{
+	font-size: 20px;
+	color: #FFF;
+	background: orange;
 }
-.user-edit__table1__item {
-  width: 300px
+.user-edit__table{
+	text-align:center;
+	margin: 0 auto;
 }
-.user-edit__table__introduction{
-  height:200px;
+#first_box table{
+	margin: 0 auto;
 }
-.user-edit__table1__item {
-  width: 300px;
-  margin-left: 75px;
+.sign-in{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
 }
-.user-edit__table2__item {
-  width: 300px
+.sign-in__table{
+	margin: 0 auto;
+	text-align: center;
 }
-.user-edit__table2__attention{
-  padding-top: 20px;
+.log-in{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
 }
-.btn-primary {
-  display: inline-block;
-  padding: 5px;
-  font-size: 90%;
-  text-decoration: none;
-  background: #668ad8;/*ボタン色*/
-  color: #FFF;
-  border-bottom: solid 4px #627295;
-  border-radius: 3px;
-}
-.btn-primary:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+.log-in__table{
+	margin: 0 auto;
+	text-align: center;
 }

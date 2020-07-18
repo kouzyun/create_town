@@ -79,3 +79,4 @@ gem 'jquery-rails'
 gem 'gimei'
 
 gem 'rails-i18n'
+gem 'bootstrap-sass', '~> 3.3.6'

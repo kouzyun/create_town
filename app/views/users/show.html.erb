@@ -1,14 +1,92 @@
-<div class="user-show">
-	<div class="user-show__list">
-		<div class="user-show__list__name">
-			<h3><%= @user.last_name + @user.first_name %>さんのマイページ</h3>
-		</div>
-		<%= render 'profile', user: @user %>
-	</div>
+<div class="container main">
+  <div class="row">
+    <div class="col col-sm-2">
+  			<h3><%= @user.last_name + @user.first_name %>さん</h3>
+    </div>
+  </div>
 
-	<div class="post-index">
-		<%= render 'posts/index', posts: @posts %>
-	</div>
+  <div class="row">
+  	<div class="col col-sm-2">
+        <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "Noimage.jpg" ,  size: "150x150", class:"profile-image"%>
+      <% unless current_user == @user %>
+        <div class="">
+          <% if current_user.following?(@user) %>
+                <h5><%= link_to "フォロー中", user_relationship_path(@user.id), method: :delete, class:"btn btn-primary" %></h5>
+          <% else %>
+              <h5><%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class:"btn btn-primary" %></h5>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="table-layout col col-sm-4">
+      <div class="user-show__status">
+        <span class="under"><%= @user.user_status %></span>
+      </div>
+      <div class="user-show__introduction">
+        <span><%= simple_format(@user.introduction) %></span>
+      </div>
+    </div>
+
+    <div class="col col-sm-4">
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>フォロー数</th>
+          <td><%= link_to @user.follow.count, user_follows_path(@user) %></td>
+        </tr>
+        <tr>
+          <th>フォロワー数</th>
+          <td><%= link_to @user.followed.count, user_followers_path(@user) %></td>
+        </tr>
+        <tr>
+          <th>やりたいこと</th>
+          <td><%= @user.interest %></td>
+        </tr>
+        <% if @user.person.present? %>
+        <tr>
+          <th>会いたい人</th>
+          <td><%= @user.person %></td>
+        </tr>
+        <% end %>
+        <% if @user.affiliation.present? %>
+        <tr>
+          <th>所属</th>
+          <td><%= @user.affiliation %></td>
+        </tr>
+        <% end %>
+        <% if @user.job.present? %>
+        <tr>
+          <th>職業</th>
+          <td><%= @user.job %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+  <% if @user.address.present? %>
+  <div class="row">
+    <div class="col">
+      <h4><span class="under">活動地域</span></h4>
+    </div>
+    <div>
+      <span><%= @user.address %></span>
+    </div>
+    <div id="profile_map"></div>
+  </div>
+  <% end %>
+
+  <div class="user-show__post-index row">
+    <div class="col">
+      <h4><span class="under"><%= @user.last_name %>さんの投稿</span></h4>
+    </div>
+    <div class="col-sm-10">
+		  <%= render 'posts/index', posts: @posts %>
+    </div>
+  </div>
+  <div  class="row">
+    <%= paginate @posts %>
+  </div>
 </div>
 
 <script type="text/javascript">

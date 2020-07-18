@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :correct_post, only: [:edit, :update]
 
   def index
-    @posts = Post.page(params[:page]).reverse_order
+    @posts = Post.page(params[:page])
   end
 
   def show

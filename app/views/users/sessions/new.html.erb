@@ -1,48 +1,48 @@
-<div class="log-in">
-
-  <h3>ログイン</h3>
-
-  <div class="login-error row">
-    <%= flash[:error] %>
-  </div>
-
-  <%= form_for(resource, as: resource_name, url: users_sign_in_path) do |f| %>
-
-    <div class="log-in__list">
-      <table class="">
-        <tbody>
-          <tr>
-            <td><%= f.label :email, "メールアドレス" %></td>
-            <td>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <%= f.label :password, "パスワード" %></td>
-            <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-          </tr>
-
-          <tr>
-            <td colspan="2"  align="center" class="btn btn-large">
-              <%= f.submit "ログイン" %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+<div class="container main">
+  <div class="row">
+    <div class="log-in">
+      <div class="list-title">
+        <p>ログイン</p>
       </div>
-    <% end %>
 
-  <% end %>
+      <div class="login-error row">
+        <%= flash[:error] %>
+      </div>
 
-  <h5 class="section-ttl">登録がお済みでない方</h5>
-  <p><%= link_to "こちら", users_sign_up_path, class: "underline" %>から新規登録を行なってください。</p>
+      <%= form_for(resource, as: resource_name, url: users_sign_in_path) do |f| %>
 
+      <div class="">
+        <table class="log-in__table">
+          <tbody>
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :password, "パスワード" %></td>
+            </tr>
+            <tr>
+              <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+            </tr>
+            <tr>
+              <td>
+              <%= f.submit "ログイン", class:"btn btn-primary" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <% end %>
+
+      <h4>登録がお済みでない方</h4>
+      <p><%= link_to "こちら", users_sign_up_path, class: "underline" %>から新規登録を行なってください。</p>
+
+    </div>
+  </div>
 </div>

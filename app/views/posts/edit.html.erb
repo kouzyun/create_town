@@ -1,52 +1,10 @@
-<div class="post-edit">
-	<div class="">
-		<h3>投稿内容編集</h3>
+<div class="container main">
+	<div class="row">
+		<div class="post-edit">
+			<div class="list-title">
+				<p>投稿情報編集</p>
+			</div>
+			<%= render 'post-form', post: @post%>
+		</div>
 	</div>
-
-	<div class="">
-    	<%= render 'layouts/error_messages', model: @post %>
- 	</div>
-
-	<%= form_with(model: @post, local: true) do |f| %>
-		<div class="post-new__item post-new__picture">
-			<%= attachment_image_tag @post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
-		</div>
-		<div class="post-new__item post_new__picture-select">
-			<%= f.attachment_field :image %>
-		</div>
-
-		<div class="post-new__item post-new__item__title">
-			<span>タイトル</span><br/>
-			<%= f.text_field :title , class:"post-new__item__title"%>
-		</div>
-
-		<div class="post-new__item post-new__category">
-			<span>カテゴリー</span><br/>
-			<%= f.select :category , Post.categories.keys ,prompt: "-- 選択してください --" %>
-		</div>
-
-		<div class="post-new__item post-new__body">
-			<span>本文</span><br/>
-			<%= f.text_area :body ,class:"post-new__item__body"%>
-		</div>
-
-		<div class="post-new__item post-new__attention">
-			<span>-----活動場所があれば住所を記載してください----</span>
-		</div>
-
-		<div class="post-new__item post-new__postal-code">
-			<span>郵便番号(ハイフンなし)</span><br/>
-			<%= f.text_field :postal_code ,class:"post-new__item__postal-code"%>
-		</div>
-
-		<div class="post-new__item post-new__address">
-			<span>住所</span><br/>
-			<%= f.text_field :address, class:"post-new__item__address" %>
-		</div>
-
-		<div class="post-new__item post-new__action">
-			<%= f.submit %>
-		</div>
-
-	<% end %>
 </div>

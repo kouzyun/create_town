@@ -1,7 +1,19 @@
-<div class="post-index">
-	<div class="post-index__title">
-		<h3>投稿一覧</h3>
+<div class="container main">
+	<div class="row">
+		<h3><span class="under">投稿一覧</span></h3>
 		<%= flash[:success] %>
 	</div>
-	<%= render 'posts/index', posts: @posts %>
+	<div class="row" >
+		<div class="col col-sm-2" style="border: 1px solid">
+		検索
+		</div>
+		<div class="col col-sm-10">
+			<div class="row">
+				<%= render 'index', posts: @posts %>
+			</div>
+			<div  class="row">
+			<%= paginate @posts %>
+			</div>
+		</div>
+	</div>
 </div>

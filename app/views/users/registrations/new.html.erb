@@ -1,66 +1,70 @@
-<div class="sign-up">
+<div class="container main">
+  <div class="row">
+    <div class="sign-in">
+      <div class="list-title">
+        <p>新規登録</p>
+      </div>
+      <%= form_for(resource, as: resource_name, url: users_path) do |f| %>
+      <div class="">
+        <%= render 'layouts/error_messages', model: resource %>
+      </div>
+      <div class="">
+        <table class="sign-in__table">
+          <tbody>
+            <tr>
+              <td><%= f.label :last_name , "名前(性)"%></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= f.label :first_name, "名前(名)" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+            </tr>
+            <tr>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password, "パスワード" %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %>文字以上)</em>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.password_field :password, autocomplete: "new-password" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :password_confirmation, "パスワード確認用" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.submit "新規登録", class:"btn btn-primary" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <% end %>
 
-  <h3 class="sign_up_title">新規登録</h3>
-
-  <%= form_for(resource, as: resource_name, url: users_path) do |f| %>
-    <div class="">
-      <%= render 'layouts/error_messages', model: resource %>
+      <h4 class="">既に登録済みの方</h4>
+      <p><%= link_to "こちら", users_sign_in_path %>からログインしてください。</p>
     </div>
-    
-    <div class="sign-up__list">
-      <table>
-        <tbody>
-          <tr>
-            <td>名前</td>
-            <td><%= f.label :last_name,"(姓)" %></td>
-            <td align="right"><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-            </td>
-          </tr>
-
-          <tr>
-            <td></td>
-            <td>
-              <%= f.label :first_name, "(名)" %></td>
-            <td align="right"><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %></td>
-            </td>
-          </tr>
-
-          <tr>
-            <td><%= f.label :email, "メールアドレス" %></td>
-            <td colspan="2" align="right"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-          </tr>
-
-          <tr>
-            <td><%= f.label :password, "パスワード" %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %>文字以上)</em>
-              <% end %>
-            </td>
-            <td colspan="2"  align="right">
-              <%= f.password_field :password, autocomplete: "new-password" %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <%= f.label :password_confirmation, "パスワード確認用" %>
-            </td>
-            <td colspan="2"  align="right">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-            </td>
-          </tr>
-
-          <tr>
-            <td colspan="3"  align="center" class="btn btn-large">
-              <%= f.submit "新規登録" %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
-
-  <h4 class="sign-up__section-log-in">既に登録済みの方</h4>
-    <p><%= link_to "こちら", users_sign_in_path %>からログインしてください。</p>
   </div>
 </div>
