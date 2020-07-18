@@ -1,42 +1,19 @@
-<div class="post-index">
-	<div class="post-index__title">
-		<h3>投稿一覧</h3>
-		 <%= flash[:success] %>
+<div class="container main">
+	<div class="row">
+		<h3><span class="under">投稿一覧</span></h3>
+		<%= flash[:success] %>
 	</div>
-	<div class="post-index__item">
-		<% @posts.each do |post| %>
-			<div class="post-index__item__list">
-				<table>
-					<tbody align="center">
-						<tr>
-							<td><%= link_to post_path(post) do %>
-								<%= attachment_image_tag post, :image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "250x150"%>
-								<% end %>
-							</td>
-						</tr>
-						<tr>
-							<td><span><%= post.title %></span></td>
-						</tr>
-
-						<tr>
-							<td><span><%= post.category %></span></td>
-						</tr>
-						<% if post.address.present? %>
-						<tr align="right" >
-							<td>
-								<div class="post-index__item__prefecture-name">
-									<span><%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></span>
-								</div>
-							</td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
+	<div class="row" >
+		<div class="col col-sm-2" style="border: 1px solid">
+		検索
+		</div>
+		<div class="col col-sm-10">
+			<div class="row">
+				<%= render 'index', posts: @posts %>
 			</div>
-		<% end %>
-	</div>
-	<div  class="post-index__pagenate">
-		<%= paginate @posts %>
+			<div  class="row">
+			<%= paginate @posts %>
+			</div>
+		</div>
 	</div>
 </div>
-		
