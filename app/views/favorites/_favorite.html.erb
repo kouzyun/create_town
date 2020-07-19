@@ -1,10 +1,10 @@
 <% if post.favorited_by?(current_user) %>
-  <%= link_to post_favorite_path(post), method: :delete , remote: true do %>
+  <%= link_to post_favorite_path(post.id, post.favorites), method: :delete, remote: true do %>
     <h4><i class="fas fa-star" aria-hidden="true" style="color: #F0E68C;"></i>
   <% end %>
-  <%= post.favorites.count %> 気になる！</h4>
+  <%= post.favorites.count %> いいね！</h4>
 <% else %>
-  <%= link_to "/posts/#{post.id}/favorites", method: :post , remote: true do %>
+  <%= link_to post_favorites_path(post.id, post.favorites), method: :post, remote: true do %>
     <h4><i class="fas fa-star" aria-hidden="true" style="color: grey;"></i>
   <% end %>
   <%= post.favorites.count %> 気になる！</h4>

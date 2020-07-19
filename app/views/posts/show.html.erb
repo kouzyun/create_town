@@ -73,11 +73,11 @@
     <div class="">
       <h4><span class="under">コメント欄</span></h4>
     </div>
-    <div id="comments_area" clsss="post-show__comment__content">
+    <div id="comments_area" clsss="">
       <%= render partial: 'comments/index', locals: {post: @post} %>
     </div>
 
-    <div class="post-show__comment__form">
+    <div class="">
       <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
     </div>
   </div>
