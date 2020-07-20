@@ -1,2 +1,28 @@
-<h1>Columns#index</h1>
-<p>Find me in app/views/columns/index.html.erb</p>
+<div class="container main">
+	<div class="row">
+		<% @columns.each do |column| %>
+			<div class="col column_index">
+				<div class="columns-list">
+					<table class="table-borderless bg-light">
+						<tbody class="columns-table">
+							<%= link_to column_path(column) do %>
+							<tb>
+								<%= attachment_image_tag column.user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "50x50", class: "profile-image"%>
+							</tb>
+							<tb>
+								<%= column.user.last_name %>さん
+							</tb>
+							<tb>
+								<%= column.title %>
+							</tb>
+							<tb>
+								作成日:<%= column.created_at.strftime('%Y/%m/%d')  %>
+							</tb>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
