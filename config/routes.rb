@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'columns/index'
+  get 'columns/show'
+  get 'columns/new'
+  get 'columns/edit'
   #デバイス
   devise_for :users, skip: [:registrations, :sessions]
   devise_scope :user do
@@ -29,6 +33,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy] #コメント
     resources :favorites, only: [:create, :destroy] #いいね
   end
+
+  #コラム
+  resources :columns
 
 
   #検索コーナー

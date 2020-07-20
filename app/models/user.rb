@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :columns, dependent: :destroy
 
   #フォロー機能の多対多のリレーション設定
   has_many :follow, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy #フォローしているユーザーを取得
