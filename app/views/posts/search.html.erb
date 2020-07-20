@@ -4,6 +4,9 @@
 			<h3><span class="under">検索結果</span></h3>
 				<% if @posts.present? %>
 					<%= render 'index', posts: @posts %>
+					<div  class="row">
+						<span><%= paginate @posts %></span>
+					</div>
 				<% else %>
 					<p>検索結果がありません。</p>
 				<% end %>

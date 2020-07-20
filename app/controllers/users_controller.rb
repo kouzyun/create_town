@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.search(params[:search])
+    @users = User.search(params[:search]).page(params[:page])
   end
 
   private

@@ -46,6 +46,7 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:search])
+    @posts = @posts.page(params[:page])
   end
 
   private

@@ -1,37 +1,37 @@
 <% users.each do |user| %>
-		<div class="user-index row">
-			<div class="col col-sm-1">
-				<%= link_to user_path(user) do %>
-					<%= attachment_image_tag user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "70x70", class: "profile-image"%>
-				<% end %>
-			</div>
-			<div class="table-layout user-index__item col col-sm-7">
-				<table class="">
-					<tbody>
-						<tr>
-							<td>
-							<%= link_to user_path(user) do %>
-								<%= user.last_name + user.first_name %>
-							<% end %>
-							</td>
-						</tr>
-					
-						<% if user.interest.present? %>
-						<tr>
-							<td>
-								<span>やりたいこと：<%= user.interest %></span>
-							</td>
-						</tr>
-						<% end %>
-						<% if user.user_status.present? %>
-						<tr>
-							<td>
-								<span><%= user.user_status %></span>
-							</td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
+	<div class="user-index row">
+		<div class="col col-sm-1">
+			<%= link_to user_path(user) do %>
+				<%= attachment_image_tag user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "70x70", class: "profile-image"%>
+			<% end %>
 		</div>
-	<% end %>
+		<div class="table-layout user-index__item col col-sm-7">
+			<table class="">
+				<tbody>
+					<tr>
+						<td>
+						<%= link_to user_path(user) do %>
+							<%= user.last_name + user.first_name %>
+						<% end %>
+						</td>
+					</tr>
+				
+					<% if user.interest.present? %>
+					<tr>
+						<td>
+							<span>やりたいこと：<%= user.interest %></span>
+						</td>
+					</tr>
+					<% end %>
+					<% if user.user_status.present? %>
+					<tr>
+						<td>
+							<span><%= user.user_status %></span>
+						</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<% end %>

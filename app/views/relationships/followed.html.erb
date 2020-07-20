@@ -1,6 +1,10 @@
-<div class="relationship-followd">
-	<div class="elationship-followd__title">
-		<h3><span class="under">フォロワー</span></h3>
+<div class="container main">
+	<div class="row">
+		<div class="col col-sm-10">
+			<%= render 'users/user-list', users: @users %>
+		</div>
+		<div  class="row">
+			<span><%= paginate @users %></span>
+		</div>
 	</div>
-	<%= render 'users/index', users: @users %>
 </div>

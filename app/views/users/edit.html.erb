@@ -24,12 +24,12 @@
 
           <!----フォーム切り替えボタン--->
     	    <label>
-            <%= f.radio_button :user_status,:なにかしたいです！, class:"user-edit__form-change", onclick:"formChange();", checked:"checked" %>
-            <%= f.label :なにかしたいです！ %>
+            <%= f.radio_button :user_status,:プロジェクトを探す, class:"user-edit__form-change", onclick:"formChange();", checked:"checked" %>
+            <%= f.label :プロジェクトを探す %>
           </label><br/>
     	    <label>
-            <%= f.radio_button :user_status, :参加者探してます！, class:"user-edit__form-change", onclick:"formChange();" %>
-            <%= f.label :参加者探してます！ %>
+            <%= f.radio_button :user_status, :プロジェクトを主催する, class:"user-edit__form-change", onclick:"formChange();" %>
+            <%= f.label :プロジェクトを主催する %>
           </label>
         </div>
       </div>
@@ -75,7 +75,7 @@
         <!-- きりかえ2 -->
       <div id="second_box">
   	     <div class="">
-  		    <span>----参加者を探されている方は、こちらもご記入ください----</span>
+  		    <span>----プロジェクトを主催される方は、こちらもご記入ください----</span>
   	     </div>
         <table class="user-edit__table">
           <tbody>

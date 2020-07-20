@@ -16,11 +16,52 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+header{
+	background-color: #e9e9e9;
+	opacity: 0.8;
+}
 .main {
-  padding-top: 90px;
+  margin-top: 120px;
+}
+*{
+	font-family: ZEN角ゴシックN R;
 }
 
+.top-image1{
+	background-image: url(top-image1.jpg)
+}
+.top-image2{
+	background-image: url(top-image2.jpg)
+}
+.top-image3{
+	background-image: url(top-image3.jpg)
+}
+.top-image4{
+	background-image: url(top-image4.jpg)
+}
+.top-image5{
+	background-image: url(top-image5.jpg)
+}
 #container{
- 	height: 500px;
+ 	height: 400px;
  }
+ #theTarget{
+ 	position: relative;
+ }
+.top-title{
+	position: absolute;
+	top: 150px;
+	left: 20%;
+	height: 180px;
+	width: 400px;
+	background-color: #e9e9e9;
+	border-radius: 5px;
+	opacity: 0.8;
+	text-align:center;
+}
+footer{
+	text-align: center;
+	margin-top: 20px;
+}
+
 
