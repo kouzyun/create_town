@@ -71,11 +71,14 @@ footer{
 .columns-list{
   background: #fcfcfc;
   padding: 1px;
-  border: solid 2px gray;
   max-width: 60%;
 }
-.columns-table{
-	width:100%;
+.column-show{
+	max-width: 60%;
+}
+.column-show__body{
+	margin: 20px 0 ;
+	border: solid 2px gray;
 }
 
 
