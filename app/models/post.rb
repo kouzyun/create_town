@@ -3,6 +3,9 @@ class Post < ApplicationRecord
 	attachment :image
 	has_many :comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
+	
+	#閲覧回数をカウントできるように設定
+	is_impressionable counter_cache: true
 
 	#ユーザーidがfavoritesテーブルに存在しているか調べる(いいねしているか調べる)
 	def favorited_by?(user)

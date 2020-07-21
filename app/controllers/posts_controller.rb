@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_post, only: [:edit, :update]
+  #showページの閲覧数をカウントする
+  impressionist :actions=> [:show]
 
   def index
     @posts = Post.page(params[:page])
@@ -9,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    impressionist(@post, nil)
   end
 
   def new

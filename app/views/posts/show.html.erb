@@ -36,8 +36,11 @@
       <h4><i class="far fa-comment"></i>
       <%= @post.comments.count %></h4>
     </div>
-    <div class="col col-sm-3" id="favorites_buttons_<%= @post.id %>">
+    <div class="col col-sm-2" id="favorites_buttons_<%= @post.id %>">
       <%= render partial: 'favorites/favorite', locals: { post: @post} %>
+    </div>
+    <div class="col col-sm-2">
+      <h4><i class="far fa-eye"></i><%=  @post.impressionist_count %></h4>
     </div>
   </div>
 
