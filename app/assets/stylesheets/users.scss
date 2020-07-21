@@ -15,7 +15,9 @@
 .user-index__item{
 	margin-left: 20px;
 }
-
+.user-show__table{
+	background-color: white;
+}
 #profile_map{
 	height:200px;
 	width: 400px;
@@ -28,6 +30,13 @@
 }
 .user-show__post-index{
 	margin: 30px 0;
+	border-top: 1px solid;
+}
+.user-show__table{
+	background-color: white;
+}
+.user-show__map{
+	margin-top: 20px;
 	border-top: 1px solid;
 }
 .user-edit{
