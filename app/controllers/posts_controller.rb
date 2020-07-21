@@ -6,6 +6,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page])
+    #いいね数の多い投稿トップ3を表示する()
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
   def show
