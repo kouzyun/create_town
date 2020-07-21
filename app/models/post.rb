@@ -9,8 +9,6 @@ class Post < ApplicationRecord
 		favorites.where(user_id: user.id).exists?
 	end
 
-	enum category: { 参加者募集中！: 0, 考え事: 1, イベント開催します！: 2 },_suffix: true
-
 	#geocoderがaddressカラムからlatitude,longitudeに自動的に反映させる
 	geocoded_by :address
 	after_validation :geocode

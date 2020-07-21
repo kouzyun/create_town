@@ -1,25 +1,31 @@
 <div class="container main">
 	<div class="row">
 		<div class="column-show">
-			<div class="list-title">
+			<div class="column-show__item list-title">
 				<p><span><%= @column.title %><br/>作成日:<%= @column.created_at.strftime('%Y/%m/%d')  %></span></p>
 			</div>
-			<div class="">
-				<div class="">
-					<%= link_to  user_path(@column.user) do%>
-				<%= attachment_image_tag @column.user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "50x50", class: "profile-image"%>
-				<%= @column.user.last_name %>さん
+			<div class="column-show__item">
+				<%= link_to  user_path(@column.user) do%>
+					<%= attachment_image_tag @column.user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "50x50", class: "profile-image"%>
+					<%= @column.user.last_name %>さん
 				<% end %>
 			</div>
-			<div class="">
+			<div class="column-show__item">
 				<span class="under">ステータス：<%= @column.user.user_status %></span>
 			</div>
-			</div>
-			<div class="column-show__body">
+			<div class="column-show__item">
+		      <%= attachment_image_tag @column, :column_image, format: 'jpeg', size: "400x300" %>
+		    </div>
+			<div class="column-show__item column-show__body">
 				<%= simple_format(@column.body) %>
 			</div>
-			<%= link_to "編集", edit_column_path(@column), class:"btn btn-success" %>
-			<%= link_to "削除", column_path(@column), class:"btn btn-danger"%>
+			<div class="column-show__item">
+			<% if current_user == @column.user %>
+				<%= link_to "編集", edit_column_path(@column), class:"btn btn-success" %>
+				<%= link_to "削除", column_path(@column), class:"btn btn-danger"%>
+			<% end %>
+			</div>
 		</div>
+
 	</div>
 </div>

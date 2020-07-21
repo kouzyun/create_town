@@ -11,9 +11,6 @@
       <i class="fas fa-map-marker-alt"></i><h4><%= @post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %></h4>
     </div>
     <% end %>
-    <div class="col col-sm-3">
-      <h4><span class="under post-show__info__category"><%= @post.category %></span></h4>
-    </div>
     <div class="col col-sm-1">
       <% if @post.user == current_user %>
       <h5><%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success" %>

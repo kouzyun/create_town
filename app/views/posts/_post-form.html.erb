@@ -13,10 +13,6 @@
 	<%= f.text_field :title, :size=>"40x10" %>
 </div>
 <div class="">
-	<h5>カテゴリー</h5>
-	<%= f.select :category , Post.categories.keys ,prompt: "-- 選択してください --" %>
-</div>
-<div class="">
 	<h5>本文</h5>
 	<%= f.text_area :body %>
 </div>

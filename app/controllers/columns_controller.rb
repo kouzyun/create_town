@@ -1,6 +1,6 @@
 class ColumnsController < ApplicationController
   def index
-  	@columns = Column.all
+  	@columns = Column.all.page(params[:page]).per(5)
   end
 
   def show
@@ -34,9 +34,14 @@ class ColumnsController < ApplicationController
     redirect_to columns_path
   end
 
+  def search
+    @columns = Post.search(params[:search])
+    @columns = @columns.page(params[:page]).per(5)
+  end
+
   private
 
   def column_params
-    params.require(:column).permit(:title, :body)
+    params.require(:column).permit(:title, :body, :column_image)
   end
 end

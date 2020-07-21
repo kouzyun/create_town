@@ -44,11 +44,6 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def search
-    @posts = Post.search(params[:search])
-    @posts = @posts.page(params[:page])
-  end
-
   private
 
   def correct_post
@@ -59,6 +54,6 @@ class PostsController < ApplicationController
   end
   
   def post_params
-  	params.require(:post).permit(:user_id, :title, :body, :image, :category, :postal_code, :address, :latitude, :longitude)
+  	params.require(:post).permit(:user_id, :title, :body, :image, :postal_code, :address, :latitude, :longitude)
   end
 end
