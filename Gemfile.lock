@@ -114,6 +114,8 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    impressionist (2.0.0)
+      nokogiri (~> 1)
     io-like (0.3.1)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
@@ -292,6 +294,7 @@ DEPENDENCIES
   dotenv-rails
   geocoder
   gimei
+  impressionist
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.2.1)
