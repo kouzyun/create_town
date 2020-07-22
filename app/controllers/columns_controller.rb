@@ -14,8 +14,11 @@ class ColumnsController < ApplicationController
   def create
   	@column = Column.new(column_params)
     @column.user_id = current_user.id
-    @column.save
-    redirect_to column_path(@column.id)
+    if @column.save
+      redirect_to column_path(@column.id)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -23,9 +26,12 @@ class ColumnsController < ApplicationController
   end
 
   def update
-  	column = Column.find(params[:id])
-    column.update(column_params)
-    redirect_to column_path(column.id)
+  	@column = Column.find(params[:id])
+    if @column.update(column_params)
+      redirect_to column_path(column.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

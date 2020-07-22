@@ -24,7 +24,6 @@ class Post < ApplicationRecord
 	end
 
 	validates :title, :body, length: {minimum: 5}
-	validates :category, presence: :true
 	validates :postal_code, format: { with: /\A\d{7}\z/ }, allow_blank: true #郵便番号を整数7桁しか受け付けないように設定
 	validates :address, length: {minimum: 3}, allow_blank: true
 end

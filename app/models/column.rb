@@ -7,4 +7,6 @@ class Column < ApplicationRecord
 	def self.search(search)
 		Column.where(['title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%"])
 	end
+
+	validates :title, :body, :column_image, presence: :true
 end
