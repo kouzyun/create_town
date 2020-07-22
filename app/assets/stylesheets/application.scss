@@ -72,9 +72,23 @@ footer{
 	text-align: center;
 	margin-top: 20px;
 }
-
-
-
+.form-layout{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
+}
+.list-title{
+	font-size: 20px;
+	color: #FFF;
+	background: orange;
+}
+.profile-image{
+	border-radius: 50%;
+}
+.under{
+	border-bottom: dashed 2px orange;
+}
 
 
 .columns-list{

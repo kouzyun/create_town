@@ -1,31 +1,15 @@
 <div class="container main">
 	<div class="row">
-		<div class="post-new">
+		<div class="form-layout">
 			<div class="list-title">
 				<p>コラム投稿</p>
 			</div>
 			<div class="">
 				<%= render 'layouts/error_messages', model: @column %>
 			</div>
-			<%= form_with(model: @column, local: true) do |f| %>
 			<div class="">
-			<%= attachment_image_tag @column, :column_image,format: 'jpeg', fallback: "Noimage.png" ,  size: "250x150"%>
+				<%= render 'column-form', column: @column %>
 			</div>
-			<div class="">
-				<%= f.attachment_field :column_image,class:"file-select" %>
-			</div>
-			<div class="">
-				<p>タイトル</p>
-				<%= f.text_field :title, :size=>"40x10" %>
-			</div>
-			<div class="">
-				<h5>本文</h5>
-				<%= f.text_area :body %>
-			</div>
-			<div class="">
-				<%= f.submit "投稿する" %>
-			</div>
-			<% end %>
 		</div>
 	</div>
 </div>

@@ -1,25 +1,15 @@
 <div class="container main">
 	<div class="row">
-		<div class="post-new">
+		<div class="form-layout">
 			<div class="list-title">
-				<p>コラム編集</p>
+				<p>コラム投稿</p>
 			</div>
 			<div class="">
 				<%= render 'layouts/error_messages', model: @column %>
 			</div>
-			<%= form_with(model: @column, local: true) do |f| %>
 			<div class="">
-				<p>タイトル</p>
-				<%= f.text_field :title, :size=>"40x10" %>
+				<%= render 'column-form', column: @column %>
 			</div>
-			<div class="">
-				<h5>本文</h5>
-				<%= f.text_area :body %>
-			</div>
-			<div class="">
-				<%= f.submit "更新する" %>
-			</div>
-			<% end %>
 		</div>
 	</div>
 </div>

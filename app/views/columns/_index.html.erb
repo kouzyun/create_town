@@ -1,30 +1,30 @@
 <div class="row">
-			<% columns.each do |column| %>
-				<div class="column-index col col-sm-4">
-					<table class="table-layout">
-						<tbody align="center">
-							<tr>
-								<td><%= link_to column_path(column) do %>
-										<%= attachment_image_tag column, :column_image,format: 'jpeg', fallback: "Noimage.png" ,  size: "250x150"%>
-									<% end %>
-								</td>
-							</tr>
-							<tr>
-								<td><%= column.title %></td>
-							</tr>
-							<tr>
-								<td><%= column.user.last_name + column.user.first_name %></td>
-							</tr>
-							<tr>
-								<td>
-									<%= column.created_at.strftime('%Y/%m/%d')  %>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			<% end %>
-			</div>
-			<div  class="row">
-				<span><%= paginate columns %></span>
-			</div>
+<% columns.each do |column| %>
+	<div class="column-index col col-sm-4">
+		<table class="table-layout">
+			<tbody align="center">
+				<tr>
+					<td><%= link_to column_path(column) do %>
+							<%= attachment_image_tag column, :column_image,format: 'jpeg', fallback: "Noimage.png" ,  size: "250x150"%>
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td><%= column.title %></td>
+				</tr>
+				<tr>
+					<td><%= column.user.last_name + column.user.first_name %></td>
+				</tr>
+				<tr>
+					<td>
+						<%= column.created_at.strftime('%Y/%m/%d')  %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<% end %>
+</div>
+<div  class="row">
+	<span><%= paginate columns %></span>
+</div>
