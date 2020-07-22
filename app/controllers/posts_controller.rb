@@ -2,9 +2,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_post, only: [:edit, :update]
   before_action :correct_status, only: [:new, :create, :edit, :update, :destroy]
-  #showページの閲覧数をカウントする
-  impressionist :actions=> [:show]
-
   def index
     @posts = Post.page(params[:page]).order(created_at: :desc)
     #いいね数の多い投稿トップ3を表示する()
@@ -14,7 +11,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    impressionist(@post, nil)
   end
 
   def new

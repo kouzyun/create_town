@@ -27,7 +27,7 @@
 	border-top: solid 1px;
 	max-width: 800px;
 }
-.post-show__user__name{
+.post-show__name{
 	text-align: center;
 }
 .post-show__info__category{
@@ -48,7 +48,21 @@
 	margin-top:20px;
 	padding : 20px;
 	border-top: solid 1px;
-	max-width: 500px;
+	width: 80%;
+}
+.comment-table{
+	width: 60%;
+	padding:10px;
+	margin-bottom:20px;
+	border: 1px solid;
+	vertical-align: center;
+}
+.comment-table__item{
+	padding-top:10px;
+}
+.comment-body{
+	padding-top:10px;
+	padding-left:50px;
 }
 #map{
 	height: 200px;

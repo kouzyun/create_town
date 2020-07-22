@@ -1,22 +1,27 @@
 <% post.comments.each do |comment| %>
-  <table class="table">
-    <tbody>
-      <td>
+  <div class="comment-table">
+    <div class="row">
+      <div class="col col-sm-1">
         <%= link_to user_path(comment.user) do %>
           <%= attachment_image_tag comment.user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "40x40", class:"profile-image"%>
         <% end %>
-      </td>
-      <td>
+      </div>
+      <div class="col col-sm-2 comment-table__item">
         <%= comment.user.last_name %>さん
-      </td>
-      <td>
-        <%= simple_format(comment.content) %>
-      </td>
+      </div>
+      <div class="col col-sm-3 comment-table__item">
+        <%= comment.created_at.strftime('%Y/%m/%d')  %>
+      </div>
       <% if comment.user == current_user%>
-        <td align="right">
-          <%= link_to "削除", post_comment_path(@post, comment), method: :delete , class:"btn btn-danger", remote: true%>
-        </td>
+      <div class="col col-sm-1">
+        <%= link_to "削除", post_comment_path(@post, comment), method: :delete , class:"btn btn-danger", remote: true%>
+      </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+    <div class="row">
+      <div class="col comment-body">
+        <%= simple_format(comment.content) %>
+      </div>
+    </div>
+  </div>
 <% end %>
