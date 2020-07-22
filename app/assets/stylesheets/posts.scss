@@ -10,11 +10,8 @@
 	height: 300px;
 	width: 250px;
 }
-.table-layout{
-	color: #5d627b;
-    background: white;
-    border-top: solid 5px #5d627b;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+.posts-index__ranking{
+	text-decoration: none;
 }
 .post-show__info__prefecture-name{
   display: inline-block;
@@ -37,9 +34,7 @@
 	margin-left: 20px;
 	line-height: 40px;
 }
-.under{
-	border-bottom: dashed 2px orange;
-}
+
 .post-show__place{
 	margin-left: 40px;
 }
@@ -59,25 +54,6 @@
 	height: 200px;
 	width: 400px;
 }
-.file-select{
-	margin: 0 auto;
-}
 
-
-textarea {
-        width: 500px;
-        height: 200px;
-}
-.form-layout{
-	background-color:#EEEEEE;
-	margin: 0 auto;
-	width: 550px;
-	text-align: center;
-}
-.list-title{
-	font-size: 20px;
-	color: #FFF;
-	background: orange;
-}
 
 

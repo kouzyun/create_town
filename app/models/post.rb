@@ -19,11 +19,9 @@ class Post < ApplicationRecord
 	#プロジェクト検索機能
 	def self.search(search)
 		if search
-			Post.where(['title LIKE ? OR body LIKE ? OR address LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+			Post.where(['title LIKE ? OsR body LIKE ? OR address LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
 		end
 	end
 
-	validates :title, :body, length: {minimum: 5}
-	validates :postal_code, format: { with: /\A\d{7}\z/ }, allow_blank: true #郵便番号を整数7桁しか受け付けないように設定
-	validates :address, length: {minimum: 3}, allow_blank: true
+	validates :title, :body, :image, :address, presence: true
 end

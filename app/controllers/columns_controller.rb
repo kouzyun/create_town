@@ -1,6 +1,6 @@
 class ColumnsController < ApplicationController
   def index
-  	@columns = Column.all.page(params[:page])
+  	@columns = Column.all.page(params[:page]).order(created_at: :desc)
   end
 
   def show

@@ -20,7 +20,7 @@ ja:
       post:
         title: タイトル
         body: 本文
-        postal_code: 郵便番号
+        image: 写真
         address: 住所
       column:
         title: タイトル

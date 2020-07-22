@@ -16,6 +16,14 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+*{
+	margin: 0;
+  	padding: 0;
+  	box-sizing: border-box;
+	font-family: ZEN角ゴシックN R;
+}
+
 header{
 	background-color: white;
 	opacity: 0.8;
@@ -25,15 +33,16 @@ body{
 	background-color: rgba(243,255,216,0.4);
 	  background-size: cover;
 	  background-blend-mode: lighten;
-
 }
 .main {
   margin-top: 120px;
  }
-*{
-	font-family: ZEN角ゴシックN R;
+ footer{
+	background-color: white;
+	opacity: 0.8;
+	text-align: center;
+	margin-top: 20px;
 }
-
 .top-image1{
 	background-image: url(top-image1.jpg)
 }
@@ -66,11 +75,11 @@ body{
 	opacity: 0.8;
 	text-align:center;
 }
-footer{
-	background-color: white;
-	opacity: 0.8;
-	text-align: center;
-	margin-top: 20px;
+.table-layout{
+	color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 .form-layout{
 	background-color:#EEEEEE;
@@ -88,6 +97,13 @@ footer{
 }
 .under{
 	border-bottom: dashed 2px orange;
+}
+.file-select{
+	margin: 0 auto;
+}
+textarea {
+        width: 500px;
+        height: 200px;
 }
 
 
