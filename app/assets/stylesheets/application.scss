@@ -93,13 +93,17 @@ footer{
 	background-color: #e9e9e9;
 	opacity: 0.8;
 }
-.column-show__body{
-	margin: 20px 0 ;
-}
 .column-show__item{
 	padding: 10px;
 	text-align:center;
 }
+.column-show__body{
+	margin: 20px auto ;
+	background-color: white;
+	width: 80%;
+	border-radius: 5px;
+}
+
 .column-index{
 	margin-bottom: 20px;
 }
