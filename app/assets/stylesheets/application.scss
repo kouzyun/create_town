@@ -28,6 +28,15 @@ header{
 	background-color: white;
 	opacity: 0.8;
 }
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+}
 body{
 	background-image: url(main.png);
 	background-color: rgba(243,255,216,0.4);

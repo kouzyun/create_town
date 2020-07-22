@@ -1,0 +1,17 @@
+<div class="row">
+	<h5><span class="under">プロジェクト検索</span></h5>
+	<%= form_tag(post_search_path, :method => 'get') do %>
+		<%= text_field_tag :search, nil, placeholder: "キーワード、地名など", class:"", size: "20", required: true%>
+		<%= submit_tag '検索', :name => nil %>
+	<% end %>
+</div>
+<div class="row">
+	<p><span class="under">いいねランキングtop3</span></p>
+	<% @all_ranks.each do |post| %>
+		<div class="posts-index__ranking">
+			<%= link_to post_path(post) do %>
+				<p ><li><%= post.title %></li></p>
+			<% end %>
+		</div>
+	<% end %>
+</div>

@@ -28,11 +28,11 @@
       <table class="user-show__table table table-bordered table-hover">
         <tr>
           <th>フォロー数</th>
-          <td id='following-count_#{ @user.id }'><%= link_to "#{ @user.follow.count }", user_follows_path(@user) %></td>
+          <td><%= link_to @user.follow.count, user_follows_path(@user) %></td>
         </tr>
         <tr>
           <th>フォロワー数</th>
-          <td id='follower-count_#{ @user.id }'><%= link_to "#{ @user.followed.count }", user_followers_path(@user) %></td>
+          <td><%= link_to @user.followed.count, user_followers_path(@user) %></td>
         </tr>
         <tr>
           <th>やりたいこと</th>
