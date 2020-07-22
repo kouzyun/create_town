@@ -1,0 +1,5 @@
+<h4><span class="under">コラム検索</span></h4>
+<%= form_tag(column_search_path, :method => 'get') do %>
+	<%= text_field_tag :search, nil, placeholder: "キーワードを入力", class:"", size: "20", required: true%>
+	<%= submit_tag '検索', :name => nil %>
+<% end %>

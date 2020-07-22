@@ -50,7 +50,8 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.all.page(params[:page]).search(params[:search])
+    @posts = Post.search(params[:search])
+    @posts = Post.search(params[:search]).page(params[:page])
   end
 
   private
@@ -61,7 +62,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
   end
-  
+
   def post_params
   	params.require(:post).permit(:user_id, :title, :body, :image, :postal_code, :address, :latitude, :longitude)
   end

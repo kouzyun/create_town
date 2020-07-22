@@ -16,7 +16,7 @@ class Post < ApplicationRecord
 	geocoded_by :address
 	after_validation :geocode
 
-	#投稿キーワード検索機能
+	#プロジェクト検索機能
 	def self.search(search)
 		if search
 			Post.where(['title LIKE ? OR body LIKE ? OR address LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])

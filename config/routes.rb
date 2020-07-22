@@ -37,5 +37,6 @@ Rails.application.routes.draw do
   #検索コーナー
   get 'post_search' => 'posts#search'
   get 'user_search' => 'users#search'
+  get 'column_search' => 'columns#search'
 
 end

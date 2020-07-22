@@ -1,6 +1,6 @@
 class ColumnsController < ApplicationController
   def index
-  	@columns = Column.all.page(params[:page]).per(5)
+  	@columns = Column.all.page(params[:page])
   end
 
   def show
@@ -35,8 +35,8 @@ class ColumnsController < ApplicationController
   end
 
   def search
-    @columns = Post.search(params[:search])
-    @columns = @columns.page(params[:page]).per(5)
+    @columns = Column.search(params[:search])
+    @columns = @columns.page(params[:page])
   end
 
   private
