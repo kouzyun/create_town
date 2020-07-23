@@ -41,7 +41,9 @@
 	background-color: white;
 	margin-bottom: 10px;
 	width: 70%;
-	border: 1px solid;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+	border-left: 5px solid;
+	color: #5d627b;
 }
 .user-show__columns__item{
 	text-align:center;

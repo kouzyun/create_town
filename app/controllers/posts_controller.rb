@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :correct_post, only: [:edit, :update]
   before_action :correct_status, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @posts = Post.page(params[:page]).order(created_at: :desc)
+    binding.pry
+    @post_users = User.where(user_status: 1)
+    @posts = Post.where(@posts_users).page(params[:page]).order(created_at: :desc)
     #いいね数の多い投稿トップ3を表示する()
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end

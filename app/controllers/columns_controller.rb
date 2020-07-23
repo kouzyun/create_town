@@ -1,4 +1,6 @@
 class ColumnsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_column, only: [:edit, :update]
   def index
   	@columns = Column.all.page(params[:page]).order(created_at: :desc)
   end
@@ -46,6 +48,13 @@ class ColumnsController < ApplicationController
   end
 
   private
+
+  def correct_column
+    column = Column.find(params[:id])
+    if column.user != current_user
+      redirect_to columns_path
+    end
+  end
 
   def column_params
     params.require(:column).permit(:title, :body, :column_image)
