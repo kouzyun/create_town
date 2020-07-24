@@ -1,7 +1,13 @@
 <div class="container main">
 	<div class="row">
 		<div class="col col-sm-10">
-			<%= render 'users/user-list', users: @users %>
+			<h4><span class="under">フォローリスト</span></h4>
+			<% if @users.present? %>
+				<%= render 'users/user-list', users: @users %>
+				<span><%= paginate @users %></span>
+			<% else %>
+			<p>まだ誰もフォローしていません。</p>
+			<% end %>
 		</div>
 	</div>
 </div>

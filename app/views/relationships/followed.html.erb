@@ -1,10 +1,13 @@
 <div class="container main">
 	<div class="row">
 		<div class="col col-sm-10">
-			<%= render 'users/user-list', users: @users %>
-		</div>
-		<div  class="row">
-			<span><%= paginate @users %></span>
+			<h4><span class="under">フォロワーリスト</span></h4>
+			<% if @users.present? %>
+				<%= render 'users/user-list', users: @users %>
+				<span><%= paginate @users %></span>
+			<% else %>
+				<p>フォロワーはまだいません。</p>
+			<% end %>
 		</div>
 	</div>
 </div>

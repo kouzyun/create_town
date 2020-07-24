@@ -108,7 +108,8 @@
 
 <script type="text/javascript">
   function initMap() {
-    var test ={lat: <%= @user.latitude %>, lng: <%= @user.longitude %>};
+    //user情報から緯度と経度を取得
+    var place ={lat: <%= @user.latitude %>, lng: <%= @user.longitude %>};
     var map = new google.maps.Map(document.getElementById('profile_map'), {
               zoom: 15,
               center: test
@@ -116,23 +117,26 @@
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
-    var contentString = 'やりたいこと：<%= @user.interest %>';
+   //userのinterestの情報をmakerに反映させる。
+    var interest = 'やりたいこと：<%= @user.interest %>';
     var infowindow = new google.maps.InfoWindow({
-      content: contentString
+      content: interest
     });
 
+    //マーカーを生成
     var marker = new google.maps.Marker({
-                  position:test,
+                  position:place,
                   map: map,
-                  title: contentString
+                  title: interest
                  });
-
+    //マーカーをクリックすると、userのinterestの情報が表示される。
      marker.addListener('click', function() {
        infowindow.open(map, marker);
      });
   }
 </script>
 
+<!--google map apiを取得--->
 <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
 
 
