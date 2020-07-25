@@ -7,7 +7,6 @@
       <div class="">
         <%= render 'layouts/error_messages', model: @user %>
       </div>
-
       <%= form_with(model: @user, local: true) do |f| %>
       <div class="">
         <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"profile-image" %>
@@ -20,16 +19,17 @@
         <div class="">
           <div class="">
             <span>会員ステータス</span>
+            <p>プロジェクトを主催するを選択した場合のみ、プロジェクトの投稿ができます。</p>
           </div>
 
           <!----フォーム切り替えボタン--->
     	    <label>
-            <%= f.radio_button :user_status,:なにかしたいです！, class:"user-edit__form-change", onclick:"formChange();", checked:"checked" %>
-            <%= f.label :なにかしたいです！ %>
+            <%= f.radio_button :user_status,:プロジェクトを探す, class:"user-edit__form-change", onclick:"formChange();", checked:"checked" %>
+            <%= f.label :プロジェクトを探す %>
           </label><br/>
     	    <label>
-            <%= f.radio_button :user_status, :参加者探してます！, class:"user-edit__form-change", onclick:"formChange();" %>
-            <%= f.label :参加者探してます！ %>
+            <%= f.radio_button :user_status, :プロジェクトを主催する, class:"user-edit__form-change", onclick:"formChange();" %>
+            <%= f.label :プロジェクトを主催する %>
           </label>
         </div>
       </div>
@@ -43,7 +43,7 @@
             </tr>
             <tr>
               <td>
-                  <%= f.text_field :last_name %>
+                  <%= f.text_field :last_name, placeholder: "例：　山田" %>
               </td>
             </tr>
 
@@ -51,21 +51,21 @@
               <td><%= f.label :first_name, "名前(名)" %></td>
             </tr>
             <tr>
-              <td><%= f.text_field :first_name %></td>
+              <td><%= f.text_field :first_name, placeholder: "例：　太郎" %></td>
             </tr>
 
             <tr>
               <td><%= f.label :interest, "やりたいこと" %></td></tr>
               <tr>
-              <td><%= f.text_field :interest, :size=>"40x10" %></td>
+              <td><%= f.text_field :interest, :size=>"40x10", placeholder: "この先やりたいことを入力してください。" %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :introduction, "紹介文" %></td>
+              <td><%= f.label :introduction, "自己紹介" %></td>
             </tr>
             <tr>
               <td>
-                <%= f.text_area :introduction %></td>
+                <%= f.text_area :introduction, placeholder: "自己紹介文を入力してください。" %></td>
             </tr>
           </tbody>
         </table>
@@ -75,54 +75,35 @@
         <!-- きりかえ2 -->
       <div id="second_box">
   	     <div class="">
-  		    <span>----参加者を探されている方は、こちらもご記入ください----</span>
+  		    <span>----プロジェクトを主催される方は、こちらもご記入ください----</span>
   	     </div>
         <table class="user-edit__table">
           <tbody>
             <tr>
               <td><%= f.label :affiliation, "所属" %></td></tr>
               <tr>
-              <td><%= f.text_field :affiliation, :size=>"40x10" %></td>
+              <td><%= f.text_field :affiliation, :size=>"40x10", placeholder: "例: 〇〇株式会社、〇〇大学" %></td>
             </tr>
-
             <tr>
               <td><%= f.label :job, "職業" %></td></tr>
-              <td><%= f.text_field :job, :size=>"40x10" %></td>
+              <td><%= f.text_field :job, :size=>"40x10", placeholder: "例: デザイナー、学生" %></td>
             </tr>
-
             <tr>
-              <td><%= f.label :person, "会いたい人" %></td>
+              <td><%= f.label :person, "会いたい人", placeholder: "本文を入力してください。" %></td>
             </tr>
             <tr>
               <td>
-                  <%= f.text_field :person, :size=>"40x10" %></td>
+                  <%= f.text_field :person, :size=>"40x10", placeholder: "例: エンジニア" %></td>
             </tr>
             <tr>
-              <td colspan="2">
-                <span>----活動拠点がある方は、住所をご記入ください----</span>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
-              </td>
-              <tr>
-              <td>
-              <%= f.text_field :postal_code %></td>
-            </tr>
-
-            <tr>
-              <td><%= f.label :address, "住所" %></td>
+              <td><%= f.label :address, "活動地域" %></td>
             </tr>
             <tr>
-              <td><%= f.text_field :address, :size=>"40x10" %></td>
+              <td><%= f.text_field :address, :size=>"40x10", placeholder: "例: 大阪府〇〇市1-2-3" %></td>
             </tr>
           </tbody>
         </table>
       </div>
-
-
       <div class="">
         <%= f.submit "保存" %>
       </div>

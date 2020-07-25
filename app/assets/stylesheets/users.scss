@@ -9,13 +9,13 @@
 .user-index__table{
 	width:400px;
 }
-.profile-image{
-	border-radius: 50%;
-}
+
 .user-index__item{
 	margin-left: 20px;
 }
-
+.user-show__table{
+	background-color: white;
+}
 #profile_map{
 	height:200px;
 	width: 400px;
@@ -29,6 +29,24 @@
 .user-show__post-index{
 	margin: 30px 0;
 	border-top: 1px solid;
+}
+.user-show__table{
+	background-color: white;
+}
+.user-show__map{
+	margin-top: 20px;
+	border-top: 1px solid;
+}
+.user-show__columns{
+	background-color: white;
+	margin-bottom: 10px;
+	width: 70%;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+	border-left: 5px solid;
+	color: #5d627b;
+}
+.user-show__columns__item{
+	text-align:center;
 }
 .user-edit{
 	background-color:#EEEEEE;

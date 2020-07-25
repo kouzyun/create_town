@@ -4,22 +4,18 @@
   			<h3><%= @user.last_name + @user.first_name %>さん</h3>
     </div>
   </div>
-
   <div class="row">
   	<div class="col col-sm-2">
-        <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "Noimage.jpg" ,  size: "150x150", class:"profile-image"%>
+        <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "Noimage.png" ,  size: "150x150", class:"profile-image"%>
       <% unless current_user == @user %>
-        <div class="">
-          <% if current_user.following?(@user) %>
-                <h5><%= link_to "フォロー中", user_relationship_path(@user.id), method: :delete, class:"btn btn-primary" %></h5>
-          <% else %>
-              <h5><%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class:"btn btn-primary" %></h5>
-          <% end %>
+        <div class="" id='follow-button_#{ @user.id }'>
+          <%= render partial: 'follow-button', locals: { user: @user} %>
         </div>
       <% end %>
     </div>
-
+    <% if @user.user_status.present? && @user.introduction.present? %>
     <div class="table-layout col col-sm-4">
+      
       <div class="user-show__status">
         <span class="under"><%= @user.user_status %></span>
       </div>
@@ -27,9 +23,11 @@
         <span><%= simple_format(@user.introduction) %></span>
       </div>
     </div>
-
-    <div class="col col-sm-4">
-      <table class="table table-striped table-hover">
+    <% else %>
+      <p><span>  まだ情報が登録されていません。</span></p>
+    <% end %>
+    <div class=" col col-sm-4">
+      <table class="user-show__table table table-bordered table-hover">
         <tr>
           <th>フォロー数</th>
           <td><%= link_to @user.follow.count, user_follows_path(@user) %></td>
@@ -38,10 +36,12 @@
           <th>フォロワー数</th>
           <td><%= link_to @user.followed.count, user_followers_path(@user) %></td>
         </tr>
+        <% if @user.interest? %>
         <tr>
           <th>やりたいこと</th>
           <td><%= @user.interest %></td>
         </tr>
+        <% end %>
         <% if @user.person.present? %>
         <tr>
           <th>会いたい人</th>
@@ -63,59 +63,80 @@
       </table>
     </div>
   </div>
-
-  <% if @user.address.present? %>
-  <div class="row">
-    <div class="col">
+  <div class="user-show__map row">
+    <% if @user.columns.present? %>
+    <div class="col col-sm-6">
+      <h4><span class="under"><%= @user.last_name %>さんのコラム</span></h4>
+      <% @user.columns.each do |column| %>
+      <div class="user-show__columns">
+        <div class="user-show__columns__item">
+        <%= link_to column_path(column) do %>
+            <p><%= column.title %></p>
+        <% end %>
+        </div>
+        <div class="user-show__columns__item">
+            <p>作成日:<%= column.created_at.strftime('%Y/%m/%d')%></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+    <% if @user.address.present? %>
+    <div class="col  col-sm-6">
       <h4><span class="under">活動地域</span></h4>
+      <div>
+        <span><%= @user.address %></span>
+      </div>
+      <div id="profile_map"></div>
     </div>
-    <div>
-      <span><%= @user.address %></span>
-    </div>
-    <div id="profile_map"></div>
+    <% end %>
   </div>
+  <% if @user.posts.present? %>
+    <div class="user-show__post-index row">
+      <div class="col">
+        <h4><span class="under"><%= @user.last_name %>さんが主催するプロジェクト</span></h4>
+      </div>
+      <div class="col-sm-10">
+  		  <%= render 'posts/index', posts: @posts %>
+      </div>
+    </div>
+    <div  class="row">
+      <%= paginate @posts %>
+    </div>
   <% end %>
-
-  <div class="user-show__post-index row">
-    <div class="col">
-      <h4><span class="under"><%= @user.last_name %>さんの投稿</span></h4>
-    </div>
-    <div class="col-sm-10">
-		  <%= render 'posts/index', posts: @posts %>
-    </div>
-  </div>
-  <div  class="row">
-    <%= paginate @posts %>
-  </div>
 </div>
 
 <script type="text/javascript">
   function initMap() {
-    var test ={lat: <%= @user.latitude %>, lng: <%= @user.longitude %>};
+    //user情報から緯度と経度を取得
+    var place ={lat: <%= @user.latitude %>, lng: <%= @user.longitude %>};
     var map = new google.maps.Map(document.getElementById('profile_map'), {
               zoom: 15,
-              center: test
+              center: place
               });
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
-    var contentString = 'やりたいこと：<%= @user.interest %>';
+   //userのinterestの情報をmakerに反映させる。
+    var interest = 'やりたいこと：<%= @user.interest %>';
     var infowindow = new google.maps.InfoWindow({
-      content: contentString
+      content: interest
     });
 
+    //マーカーを生成
     var marker = new google.maps.Marker({
-                  position:test,
+                  position:place,
                   map: map,
-                  title: contentString
+                  title: interest
                  });
-
+    //マーカーをクリックすると、userのinterestの情報が表示される。
      marker.addListener('click', function() {
        infowindow.open(map, marker);
      });
   }
 </script>
 
+<!--google map apiを取得--->
 <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
 
 

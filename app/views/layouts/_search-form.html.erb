@@ -1,14 +1,8 @@
-<div class="row">
-	<h5><span class="under">投稿一覧検索</span></h5>
-	<%= form_tag(post_search_path, :method => 'get') do %>
-		<%= text_field_tag :search, nil, placeholder: "キーワード検索", class:"", size: "20", required: true%>
-		<%= submit_tag '検索', :name => nil %>
-	<% end %>
-</div>
+
 <div class="row">
 	<h5><span class="under">ユーザー検索</span></h5>
 	<%= form_tag(user_search_path, :method => 'get') do %>
-		<%= text_field_tag :search, nil, placeholder: "キーワード検索", class:"", size: "20", required: true%>
+		<%= text_field_tag :search, nil, placeholder: "キーワードを入力", class:"", size: "20", required: true%>
 		<%= submit_tag '検索', :name => nil %>
 	<% end %>
 </div>

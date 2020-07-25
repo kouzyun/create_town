@@ -2,25 +2,31 @@
 	<div class="col col-sm-4 pull-left posts-index">
 		<table class="table-layout post-index__table  table-borderless">
 			<tbody align="center">
-				<tr class="">
+				<tr>
 					<td><%= link_to post_path(post) do %>
 							<%= attachment_image_tag post, :image,format: 'jpeg', fallback: "Noimage.png" ,  size: "250x150"%>
 						<% end %>
 					</td>
 				</tr>
-				<tr class="">
+				<tr>
 					<td><span><%= post.title %></span></td>
 				</tr>
-				<tr class="">
-					<td><span><%= post.category %></span></td>
-				</tr>
-				<% if post.address.present? %>
 				<tr>
 					<td>
 						<%= post.address.match(/東京都|北海道|(?:京都|大阪)府|.{2,3}県/).to_s %>
 					</td>
 				</tr>
-				<% end %>
+				<tr>
+					<td>
+						<%= post.created_at.strftime('%Y/%m/%d')  %>
+					</td>
+ 				</tr>
+				<tr>
+					<td>
+						<span> <i class="fas fa-star" aria-hidden="true" style="color: #F0E68C;"></i> : <%= post.favorites.count %></span>
+						<span>　<i class="far fa-comment"></i> : <%= post.comments.count %></span>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>

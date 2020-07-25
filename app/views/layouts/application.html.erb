@@ -15,32 +15,39 @@
       <div class="container">
 
         <nav class="nav navbar-nav navbar-left">
-          <span><%= image_tag 'logo.png' %></span>
+          <%= link_to root_path do %>
+            <span><%= image_tag 'logo.png' %></span>
+            <% end %>
         </nav>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
-            <li class="nav-item"><%= link_to ' 投稿一覧', posts_path , class: "glyphicon glyphicon-book" %></li>
-            <li class="nav-item"><%= link_to ' 会員一覧', users_path, class: 'glyphicon glyphicon-user' %></li>
-            <li class="nav-item"><%= link_to ' 新規投稿', new_post_path, class: 'glyphicon glyphicon-send' %></li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span>ユーザー情報<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                 <span><%= link_to 'マイページ', user_path(current_user.id), class:"glyphicon glyphicon-edit" %></span><br/>
+              <li class="nav-item"><%= link_to 'プロジェクトの投稿を見る', posts_path , class: "glyphicon glyphicon-book" %></li>
+              <li class="nac-item"><%= link_to 'コラムを読む', columns_path , class: "glyphicon glyphicon-book" %></li>
+              <li class="nav-item"><%= link_to 'なかまを探す', users_path, class: 'glyphicon glyphicon-user' %></li>
+              <li class="nav-item"><%= link_to 'コラムを書く', new_column_path , class: "glyphicon glyphicon-book" %></li>
+              <!--ドロップダウンのnav-->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span>ユーザー情報<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <!--user_statusがプロジェクト主催者の場合のみ表示する-->
+                  <% if current_user.user_status_before_type_cast == 1 %>
+                    <span>
+                    <%= link_to 'プロジェクトを投稿', new_post_path, class: 'glyphicon glyphicon-send' %>
+                    </span>
+                  <% end %>
+                  <span><%= link_to 'マイページ', user_path(current_user.id), class:"glyphicon glyphicon-edit" %></span><br/>
                   <span><%= link_to 'ユーザー情報編集', edit_user_path(current_user.id), class:"glyphicon glyphicon-wrench" %></span><br/>
                   <div class="dropdown-divider"></div>
                   <span><%= link_to 'ログアウト', users_sign_out_path, class:"glyphicon glyphicon-new-window", method: :delete %></span>
-                 </div>
-            </li>
+                </div>
+              </li>
             <% else %>
-            <li><%= link_to ' ホーム', root_path, class: 'glyphicon glyphicon-home' %></li>
-            <li><%= link_to ' アバウト', about_path, class: 'glyphicon glyphicon-education' %></li>
-            <li><%= link_to ' 新規登録', users_sign_up_path, class: 'glyphicon glyphicon-edit' %></li>
-            <li><%= link_to ' ログイン', users_sign_in_path, class: 'glyphicon glyphicon-log-in' %></li>
+              <li><%= link_to ' 新規登録', users_sign_up_path, class: 'glyphicon glyphicon-edit' %></li>
+              <li><%= link_to ' ログイン', users_sign_in_path, class: 'glyphicon glyphicon-log-in' %></li>
             <% end %>
           </ul>
         </nav>
@@ -48,8 +55,14 @@
       </div>
     </header>
 
-    <div class="container-fluid">
-      <%= yield %>
+    <div id="wrapper">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
     </div>
+    <footer class="fixed-bottom">
+      <h5>CREATE TOWN</h5>
+      <p>contact: ×××@×××.com</p>
+    </footer>
   </body>
 </html>

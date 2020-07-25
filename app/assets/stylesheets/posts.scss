@@ -10,11 +10,8 @@
 	height: 300px;
 	width: 250px;
 }
-.table-layout{
-	color: #5d627b;
-    background: white;
-    border-top: solid 5px #5d627b;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+.posts-index__ranking{
+	text-decoration: none;
 }
 .post-show__info__prefecture-name{
   display: inline-block;
@@ -30,16 +27,14 @@
 	border-top: solid 1px;
 	max-width: 800px;
 }
-.post-show__user__name{
+.post-show__name{
 	text-align: center;
 }
 .post-show__info__category{
 	margin-left: 20px;
 	line-height: 40px;
 }
-.under{
-	border-bottom: dashed 2px orange;
-}
+
 .post-show__place{
 	margin-left: 40px;
 }
@@ -47,42 +42,32 @@
 	margin-top: 10px;
 	max-width: 500px;
 	background: #f1f1f1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22)
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
 }
 .post-show__comment{
 	margin-top:20px;
 	padding : 20px;
 	border-top: solid 1px;
-	max-width: 500px;
+	width: 80%;
+}
+.comment-table{
+	width: 60%;
+	padding:10px;
+	margin-bottom:20px;
+	background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.comment-table__item{
+	padding-top:10px;
+}
+.comment-body{
+	padding-top:10px;
+	padding-left:50px;
 }
 #map{
 	height: 200px;
 	width: 400px;
 }
-.file-select{
-	margin: 0 auto;
-}
 
 
-textarea {
-        width: 500px;
-        height: 200px;
-}
-.post-new{
-	background-color:#EEEEEE;
-	margin: 0 auto;
-	width: 550px;
-	text-align: center;
-}
-.list-title{
-	font-size: 20px;
-	color: #FFF;
-	background: orange;
-}
-.post-edit{
-	background-color:#EEEEEE;
-	margin: 0 auto;
-	width: 550px;
-	text-align: center;
-}
 

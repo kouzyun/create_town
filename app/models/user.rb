@@ -7,12 +7,13 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :columns, dependent: :destroy
 
   #フォロー機能の多対多のリレーション設定
   has_many :follow, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy #フォローしているユーザーを取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォロワーを取得
   has_many :following_user, through: :follow, source: :followed #自分がフォローしているユーザーを取得
-  has_many :follower_user, through: :followed, source: :followed #自分のフォロワーを取得
+  has_many :follower_user, through: :followed, source: :follow #自分のフォロワーを取得
 
 
     #フォローする
@@ -36,7 +37,8 @@ class User < ApplicationRecord
       end
     end
 
-  enum user_status: { なにかしたいです！: 0, 参加者探してます！: 1},_suffix: true
+
+  enum user_status: { プロジェクトを探す: 0, プロジェクトを主催する: 1},_suffix: true
 
   attachment :profile_image
 

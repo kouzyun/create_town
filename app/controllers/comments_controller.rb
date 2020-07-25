@@ -7,23 +7,20 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 		@comment.post_id = @post.id
 		@comment.save
-		redirect_to post_path(@post)
+		render 'index'
 	end
 
 	def destroy
 		@post = Post.find(params[:post_id])
-		comment = @post.comments.find(params[:id])
-		if comment.destroy
-    		redirect_to post_path(params[:post_id])
-    	else
-    		render 'posts/show'
-    	end
+		@comment = @post.comments.find(params[:id])
+		@comment.destroy
+    	render 'index'
 	end
 
 	private
 
 	def comment_params
-	    params.require(:comment).permit(:content)
+	    params.require(:comment).permit(:content, :post_id, :user_id)
 	end
 
 end
