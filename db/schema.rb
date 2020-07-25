@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_052944) do
+ActiveRecord::Schema.define(version: 2020_07_24_101234) do
 
   create_table "columns", force: :cascade do |t|
     t.string "title"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2020_07_22_052944) do
     t.datetime "updated_at", null: false
     t.float "longitude"
     t.float "latitude"
-    t.integer "impressions_count", default: 0
   end
 
   create_table "relationships", force: :cascade do |t|

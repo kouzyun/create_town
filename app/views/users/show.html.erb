@@ -112,7 +112,7 @@
     var place ={lat: <%= @user.latitude %>, lng: <%= @user.longitude %>};
     var map = new google.maps.Map(document.getElementById('profile_map'), {
               zoom: 15,
-              center: test
+              center: place
               });
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);

@@ -14,7 +14,7 @@
       </div>
       <% if comment.user == current_user%>
       <div class="col col-sm-1">
-        <%= link_to "削除", post_comment_path(@post, comment), method: :delete , class:"btn btn-danger", remote: true%>
+        <%= link_to "削除", post_comment_path(@post, comment), method: :delete, method: :delete,"data-confirm" => "本当に削除しますか?", class:"btn btn-danger", remote: true%>
       </div>
       <% end %>
     </div>

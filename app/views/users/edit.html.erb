@@ -43,7 +43,7 @@
             </tr>
             <tr>
               <td>
-                  <%= f.text_field :last_name %>
+                  <%= f.text_field :last_name, placeholder: "例：　山田" %>
               </td>
             </tr>
 
@@ -51,21 +51,21 @@
               <td><%= f.label :first_name, "名前(名)" %></td>
             </tr>
             <tr>
-              <td><%= f.text_field :first_name %></td>
+              <td><%= f.text_field :first_name, placeholder: "例：　太郎" %></td>
             </tr>
 
             <tr>
               <td><%= f.label :interest, "やりたいこと" %></td></tr>
               <tr>
-              <td><%= f.text_field :interest, :size=>"40x10" %></td>
+              <td><%= f.text_field :interest, :size=>"40x10", placeholder: "この先やりたいことを入力してください。" %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :introduction, "紹介文" %></td>
+              <td><%= f.label :introduction, "自己紹介" %></td>
             </tr>
             <tr>
               <td>
-                <%= f.text_area :introduction %></td>
+                <%= f.text_area :introduction, placeholder: "自己紹介文を入力してください。" %></td>
             </tr>
           </tbody>
         </table>
@@ -82,24 +82,24 @@
             <tr>
               <td><%= f.label :affiliation, "所属" %></td></tr>
               <tr>
-              <td><%= f.text_field :affiliation, :size=>"40x10" %></td>
+              <td><%= f.text_field :affiliation, :size=>"40x10", placeholder: "例: 〇〇株式会社、〇〇大学" %></td>
             </tr>
             <tr>
               <td><%= f.label :job, "職業" %></td></tr>
-              <td><%= f.text_field :job, :size=>"40x10" %></td>
+              <td><%= f.text_field :job, :size=>"40x10", placeholder: "例: デザイナー、学生" %></td>
             </tr>
             <tr>
-              <td><%= f.label :person, "会いたい人" %></td>
+              <td><%= f.label :person, "会いたい人", placeholder: "本文を入力してください。" %></td>
             </tr>
             <tr>
               <td>
-                  <%= f.text_field :person, :size=>"40x10" %></td>
+                  <%= f.text_field :person, :size=>"40x10", placeholder: "例: エンジニア" %></td>
             </tr>
             <tr>
               <td><%= f.label :address, "活動地域" %></td>
             </tr>
             <tr>
-              <td><%= f.text_field :address, :size=>"40x10" %></td>
+              <td><%= f.text_field :address, :size=>"40x10", placeholder: "例: 大阪府〇〇市1-2-3" %></td>
             </tr>
           </tbody>
         </table>

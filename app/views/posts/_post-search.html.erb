@@ -5,13 +5,3 @@
 		<%= submit_tag '検索', :name => nil %>
 	<% end %>
 </div>
-<div class="row">
-	<p><span class="under">いいねランキングtop3</span></p>
-	<% @all_ranks.each do |post| %>
-		<div class="posts-index__ranking">
-			<%= link_to post_path(post) do %>
-				<p ><li><%= post.title %></li></p>
-			<% end %>
-		</div>
-	<% end %>
-</div>
