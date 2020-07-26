@@ -2,72 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.posts-index{
-	width: 260px;
-}
-.post-index__table{
-	margin-bottom: 10px;
-	height: 300px;
-	width: 250px;
-}
-.posts-index__ranking{
-	text-decoration: none;
-}
-.post-show__info__prefecture-name{
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: skyblue;
-  text-align: center;
-}
-.post-show__user{
-	margin-top: 10px;
-	padding: 10px 0 ;
-	border-top: solid 1px;
-	max-width: 800px;
-}
-.post-show__name{
-	text-align: center;
-}
-.post-show__info__category{
-	margin-left: 20px;
-	line-height: 40px;
-}
 
-.post-show__place{
-	margin-left: 40px;
-}
-.post-show__main{
-	margin-top: 10px;
-	max-width: 500px;
-	background: #f1f1f1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
-}
-.post-show__comment{
-	margin-top:20px;
-	padding : 20px;
-	border-top: solid 1px;
-	width: 80%;
-}
-.comment-table{
-	width: 60%;
-	padding:10px;
-	margin-bottom:20px;
-	background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
-}
-.comment-table__item{
-	padding-top:10px;
-}
-.comment-body{
-	padding-top:10px;
-	padding-left:50px;
-}
-#map{
-	height: 200px;
-	width: 400px;
-}
 
 
 

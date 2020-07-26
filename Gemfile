@@ -75,3 +75,8 @@ gem 'jquery-rails'
 gem 'gimei'
 gem 'rails-i18n'
 gem 'bootstrap-sass', '~> 3.3.6'
+
+
+group :production do
+  gem 'mysql2'
+end
