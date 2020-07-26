@@ -1,0 +1,70 @@
+<div class="container main">
+  <div class="row">
+    <div class="sign-in">
+      <div class="list-title">
+        <p>新規登録</p>
+      </div>
+      <%= form_for(resource, as: resource_name, url: users_path) do |f| %>
+      <div class="">
+        <%= render 'layouts/error_messages', model: resource %>
+      </div>
+      <div class="">
+        <table class="sign-in__table">
+          <tbody>
+            <tr>
+              <td><%= f.label :last_name , "名前(性)"%></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "例： 山田" %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= f.label :first_name, "名前(名)" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "例： 太郎" %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+            </tr>
+            <tr>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"40x10", placeholder: "例： create_town@xxx.com" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password, "パスワード" %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %>文字以上)</em>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.password_field :password, autocomplete: "new-password", :size=>"40x10" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :password_confirmation, "パスワード確認用" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", :size=>"40x10" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.submit "新規登録", class:"btn btn-primary" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <% end %>
+
+      <h4 class="">既に登録済みの方</h4>
+      <p><%= link_to "こちら", users_sign_in_path %>からログインしてください。</p>
+    </div>
+  </div>
+</div>

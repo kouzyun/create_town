@@ -1,0 +1,11 @@
+<div class="container main">
+	<div class="row">
+		<div class="col col-sm-2">
+			<%= render 'column-search' %>
+		</div>
+		<div class="col col-sm-10">
+			<h4><span class="under">コラム一覧</span></h4>
+			<%= render 'index', columns: @columns %>
+		</div>
+	</div>
+</div>

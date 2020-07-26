@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+    attributes:
+      user:
+        last_name: 苗字
+        first_name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        introduction: 紹介文
+        interest: やりたいこと
+        person: 会いたいひと
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+        user_status: ユーザーステータス
+      post:
+        title: タイトル
+        body: 本文
+        image: 写真
+        address: 住所
+      column:
+        title: タイトル
+        body: 本文
+        column_image: 写真

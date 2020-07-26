@@ -1,0 +1,300 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+*{
+	margin: 0;
+  	padding: 0;
+  	box-sizing: border-box;
+	font-family: ZEN角ゴシックN R;
+}
+
+header{
+	background-color: #FFFFFF;
+	opacity: 0.8;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+}
+body{
+	background-image: image-url("main.png");
+	background-color: rgba(243,255,216,0.4);
+	background-size: cover;
+	background-blend-mode: lighten;
+}
+.main {
+  margin-top: 120px;
+ }
+ footer{
+	background-color: #FFFFFF;
+	opacity: 0.8;
+	text-align: center;
+	margin-top: 20px;
+}
+.top-image1{
+	background-image: image-url("top-image1.jpg");
+}
+.top-image2{
+	background-image: image-url("top-image2.jpg");
+}
+.top-image3{
+	background-image: image-url("top-image3.jpg");
+}
+.top-image4{
+	background-image: image-url("top-image4.jpg");
+}
+.top-image5{
+	background-image: image-url("top-image5.jpg");
+}
+#container{
+ 	height: 400px;
+ }
+ #theTarget{
+ 	position: relative;
+ }
+.table-layout{
+	color: #5d627b;
+    background: #FFFFFF;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.top-body{
+	margin: 0 auto;
+	width: 80%;
+	text-align:center;
+}
+
+.form-layout{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
+}
+.list-title{
+	font-size: 20px;
+	color: #FFF;
+	background: #FFA500;
+}
+.profile-image{
+	border-radius: 50%;
+}
+.under{
+	border-bottom: dashed 2px orange;
+}
+.file-select{
+	margin: 0 auto;
+}
+textarea {
+        width: 500px;
+        height: 200px;
+}
+.sign-in{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
+}
+.sign-in__table{
+	margin: 0 auto;
+	text-align: center;
+}
+.log-in{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
+}
+.log-in__table{
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+.user-index{
+	margin-bottom: 20px;
+}
+.user-index__table{
+	width:400px;
+}
+
+.user-index__item{
+	margin-left: 20px;
+}
+.user-show__table{
+	background-color: #FFFFFF;
+}
+#profile_map{
+	height:200px;
+	width: 400px;
+}
+.user-show__status{
+	padding-top:15px;
+}
+.user-show__introduction{
+	padding-top: 15px;
+}
+.user-show__post-index{
+	margin: 30px 0;
+	border-top: 1px solid;
+}
+.user-show__table{
+	background-color: #FFFFFF;
+}
+.user-show__map{
+	margin-top: 20px;
+	border-top: 1px solid;
+}
+.user-show__columns{
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+	width: 70%;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+	border-left: 5px solid;
+	color: #5d627b;
+}
+.user-show__columns__item{
+	text-align:center;
+}
+.user-edit{
+	background-color:#EEEEEE;
+	margin: 0 auto;
+	width: 550px;
+	text-align: center;
+}
+.user-edit__title{
+	font-size: 20px;
+	color: #FFF;
+	background: #FFA500;
+}
+.user-edit__table{
+	text-align:center;
+	margin: 0 auto;
+}
+#first_box table{
+	margin: 0 auto;
+}
+
+
+.posts-index{
+	width: 300px;
+}
+.post-index__table{
+	margin-bottom: 20px;
+	margin-right: 20px;
+	height: 300px;
+	width: 250px;
+}
+.posts-index__ranking{
+	text-decoration: none;
+}
+.post-show__info__prefecture-name{
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #a0d8ef;
+  text-align: center;
+}
+.post-show__user{
+	margin-top: 10px;
+	padding: 10px 0 ;
+	border-top: solid 1px;
+	max-width: 800px;
+}
+.post-show__name{
+	text-align: center;
+}
+.post-show__info__category{
+	margin-left: 20px;
+	line-height: 40px;
+}
+
+.post-show__place{
+	margin-left: 40px;
+}
+.post-show__main{
+	margin-top: 10px;
+	max-width: 500px;
+	background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.post-show__comment{
+	margin-top:20px;
+	padding : 20px;
+	border-top: solid 1px;
+	width: 80%;
+}
+.comment-table{
+	width: 60%;
+	padding:10px;
+	margin-bottom:20px;
+	background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.comment-table__item{
+	padding-top:10px;
+}
+.comment-body{
+	padding-top:10px;
+	padding-left:50px;
+}
+#map{
+	height: 200px;
+	width: 400px;
+}
+
+
+.columns-list{
+  margin: 0 auto;
+  background: #fcfcfc;
+  padding: 1px;
+  max-width: 60%;
+  margin-bottom: 20px;
+  border: 1px solid;
+  border-color: #808080;
+}
+.column-show{
+	margin: 0 auto;
+	text-aling: center;
+	max-width: 60%;
+	background-color: #e9e9e9;
+	opacity: 0.8;
+}
+.column-show__item{
+	padding: 10px;
+	text-align:center;
+}
+.column-show__body{
+	margin: 20px auto ;
+	background-color: #FFFFFF;
+	width: 80%;
+	border-radius: 5px;
+}
+
+.column-index{
+	margin-bottom: 20px;
+}
+
+
+

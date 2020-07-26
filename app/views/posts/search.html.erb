@@ -1,0 +1,20 @@
+<div class="container main">
+	<div class="row" >
+		<div class="col col-sm-2">
+			<%= render "post-search" %>
+		</div>
+		<div class="col col-sm-10">
+			<div class="row">
+				<h4><span class="under">検索結果</span></h4>
+				<% if @posts.present? %>
+					<%= render 'index', posts: @posts %>
+				<% else %>
+					<p>検索結果がありません。</p>
+				<% end %>
+			</div>
+			<div  class="row">
+			<%= paginate @posts %>
+			</div>
+		</div>
+	</div>
+</div>

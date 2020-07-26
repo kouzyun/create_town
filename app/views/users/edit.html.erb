@@ -1,0 +1,132 @@
+<div class="container main">
+  <div class="row">
+    <div class="user-edit">
+      <div class="list-title">
+        <p>ユーザー情報編集</p>
+      </div>
+      <div class="">
+        <%= render 'layouts/error_messages', model: @user %>
+      </div>
+      <%= form_with(model: @user, local: true) do |f| %>
+      <div class="">
+        <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no_image.jpg" ,  size: "150x150", class:"profile-image" %>
+      </div>
+      <div class="">
+        <%= f.attachment_field :profile_image,class:"file-select" %>
+      </div>
+
+      <div class="">
+        <div class="">
+          <div class="">
+            <span>会員ステータス</span>
+            <p>プロジェクトを主催するを選択した場合のみ、プロジェクトの投稿ができます。</p>
+          </div>
+
+          <!----フォーム切り替えボタン--->
+    	    <label>
+            <%= f.radio_button :user_status,:プロジェクトを探す, class:"user-edit__form-change", onclick:"formChange();", checked:"checked" %>
+            <%= f.label :プロジェクトを探す %>
+          </label><br/>
+    	    <label>
+            <%= f.radio_button :user_status, :プロジェクトを主催する, class:"user-edit__form-change", onclick:"formChange();" %>
+            <%= f.label :プロジェクトを主催する %>
+          </label>
+        </div>
+      </div>
+
+      <!----きりかえ1--->
+      <div id="first_box">
+        <table class="user_edit__table">
+          <tbody>
+            <tr>
+              <td align="center"><%= f.label :last_name, "名前(性)" %></td>
+            </tr>
+            <tr>
+              <td>
+                  <%= f.text_field :last_name, placeholder: "例：　山田" %>
+              </td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :first_name, "名前(名)" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :first_name, placeholder: "例：　太郎" %></td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :interest, "やりたいこと" %></td></tr>
+              <tr>
+              <td><%= f.text_field :interest, :size=>"40x10", placeholder: "この先やりたいことを入力してください。" %></td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :introduction, "自己紹介" %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.text_area :introduction, placeholder: "自己紹介文を入力してください。" %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+        <!-- きりかえ2 -->
+      <div id="second_box">
+  	     <div class="">
+  		    <span>----プロジェクトを主催される方は、こちらもご記入ください----</span>
+  	     </div>
+        <table class="user-edit__table">
+          <tbody>
+            <tr>
+              <td><%= f.label :affiliation, "所属" %></td></tr>
+              <tr>
+              <td><%= f.text_field :affiliation, :size=>"40x10", placeholder: "例: 〇〇株式会社、〇〇大学" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :job, "職業" %></td></tr>
+              <td><%= f.text_field :job, :size=>"40x10", placeholder: "例: デザイナー、学生" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :person, "会いたい人", placeholder: "本文を入力してください。" %></td>
+            </tr>
+            <tr>
+              <td>
+                  <%= f.text_field :person, :size=>"40x10", placeholder: "例: エンジニア" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :address, "活動地域" %></td>
+            </tr>
+            <tr>
+              <td><%= f.text_field :address, :size=>"40x10", placeholder: "例: 大阪府〇〇市1-2-3" %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="">
+        <%= f.submit "保存" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function formChange(){
+    radio = document.getElementsByClassName('user-edit__form-change')
+    if(radio[0].checked) {
+    //なにかしだいです！が選択された時、first_boxのみ表示する
+    document.getElementById('first_box').style.display = "";
+    document.getElementById('second_box').style.display = "none";
+
+    }else if(radio[1].checked) {
+    //参加者募集中です！が選択された時、first_boxとsecond_boxの両方を表示させる
+    document.getElementById('first_box').style.display = "";
+    document.getElementById('second_box').style.display = "";
+    }
+  }
+
+  //リロード時に選択を保持させる
+  window.onload = formChange();
+</script>
