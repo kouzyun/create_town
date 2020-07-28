@@ -30,7 +30,7 @@ class ColumnsController < ApplicationController
   def update
   	@column = Column.find(params[:id])
     if @column.update(column_params)
-      redirect_to column_path(column.id)
+      redirect_to column_path(@column.id)
     else
       render 'edit'
     end
