@@ -1,7 +1,0 @@
-GOOGLE_MAP_API_KEY = "AIzaSyBy5NPpTddCIADV-mAiWJyrgl9eFegKsmM"
-FONT_AWESOME_KEY = "https://kit.fontawesome.com/d152bc09e3.js"
-
-DB_USERNAME="root"
-DB_PASSWORD="basuketto0514"
-DB_HOST="create-town-server.ckjiqbb8ofz2.ap-northeast-1.rds.amazonaws.com"
-DB_DATABASE="CreateTown"
