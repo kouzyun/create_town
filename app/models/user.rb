@@ -38,7 +38,7 @@ class User < ApplicationRecord
     end
 
 
-  enum user_status: { プロジェクトを探す: 0, プロジェクトを主催する: 1},_suffix: true
+  enum user_status: { 募集中の投稿を見る: 0, 参加者を募集する: 1},_suffix: true
 
   attachment :profile_image
 

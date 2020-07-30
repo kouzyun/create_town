@@ -1,5 +1,5 @@
 <div class="row">
-	<h5><span class="under">プロジェクト検索</span></h5>
+	<h5><span class="under">投稿一覧検索</span></h5>
 	<%= form_tag(post_search_path, :method => 'get') do %>
 		<%= text_field_tag :search, nil, placeholder: "キーワード、地名など", class:"", size: "20", required: true%>
 		<%= submit_tag '検索', :name => nil %>

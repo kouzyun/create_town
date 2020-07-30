@@ -19,17 +19,17 @@
         <div class="">
           <div class="">
             <span>会員ステータス</span>
-            <p>プロジェクトを主催するを選択した場合のみ、プロジェクトの投稿ができます。</p>
+            <p>参加者を募集するを選択した場合のみ、参加者募集の投稿ができます。</p>
           </div>
 
           <!----フォーム切り替えボタン--->
     	    <label>
-            <%= f.radio_button :user_status,:プロジェクトを探す, class:"user-edit__form-change", onclick:"formChange();", checked:"checked" %>
-            <%= f.label :プロジェクトを探す %>
+            <%= f.radio_button :user_status,:募集中の投稿を見る, class:"user-edit__form-change", onclick:"formChange();", checked:"checked" %>
+            <%= f.label :募集中の投稿を見る %>
           </label><br/>
     	    <label>
-            <%= f.radio_button :user_status, :プロジェクトを主催する, class:"user-edit__form-change", onclick:"formChange();" %>
-            <%= f.label :プロジェクトを主催する %>
+            <%= f.radio_button :user_status, :参加者を募集する, class:"user-edit__form-change", onclick:"formChange();" %>
+            <%= f.label :参加者を募集する %>
           </label>
         </div>
       </div>
@@ -75,7 +75,7 @@
         <!-- きりかえ2 -->
       <div id="second_box">
   	     <div class="">
-  		    <span>----プロジェクトを主催される方は、こちらもご記入ください----</span>
+  		    <span>----参加者を募集される方は、こちらもご記入ください----</span>
   	     </div>
         <table class="user-edit__table">
           <tbody>
@@ -114,14 +114,13 @@
 
 <script type="text/javascript">
   function formChange(){
+    //参加者を募集するが選択された時、first_boxとsecond_boxの両方を表示させる
     radio = document.getElementsByClassName('user-edit__form-change')
     if(radio[0].checked) {
-    //なにかしだいです！が選択された時、first_boxのみ表示する
     document.getElementById('first_box').style.display = "";
     document.getElementById('second_box').style.display = "none";
 
     }else if(radio[1].checked) {
-    //参加者募集中です！が選択された時、first_boxとsecond_boxの両方を表示させる
     document.getElementById('first_box').style.display = "";
     document.getElementById('second_box').style.display = "";
     }

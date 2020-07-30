@@ -94,7 +94,7 @@
   <% if @user.posts.present? %>
     <div class="user-show__post-index row">
       <div class="col">
-        <h4><span class="under"><%= @user.last_name %>さんが主催するプロジェクト</span></h4>
+        <h4><span class="under"><%= @user.last_name %>さんの参加者募集中の投稿</span></h4>
       </div>
       <div class="col-sm-10">
   		  <%= render 'posts/index', posts: @posts %>
