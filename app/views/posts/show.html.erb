@@ -1,6 +1,6 @@
 <div class="container main">
-  <!--ステータスがプロジェクトオーナーではないものは非表示-->
-  <% if @post.user.user_status == 'プロジェクトを主催する' %>
+  <!--ユーザーステータスが参加者を募集する場合のみ表示する-->
+  <% if @post.user.user_status == '参加者を募集する' %>
     <div class="row post_show__title">
       <div class="">
         <h3><span class="under"><%= @post.title %></span></h3>
@@ -74,7 +74,7 @@
       </div>
     </div>
    <% else %>
-   <h3>このプロジェクトオーナーは現在このプロジェクトを主催していません。</h3>
+   <h3>現在、参加者を募集していません。</h3>
    <% end %>
 </div>
 
@@ -97,7 +97,7 @@
 
     //マーカーを生成
     var marker = new google.maps.Marker({
-                  position:test,
+                  position:place,
                   map: map,
                   title: postTitle
                  });

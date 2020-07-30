@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :correct_post, only: [:edit, :update]
   before_action :correct_status, only: [:new, :create, :edit, :update, :destroy]
   def index
-    #会員ステータスがプロジェクトオーナーのみの投稿を表示する
-    @posts = Post.joins(:user).where(users: {user_status: "プロジェクトを主催する"}).page(params[:page]).order(created_at: :desc)
+    #会員ステータスが参加者を募集するユーザーの投稿のみを表示する
+    @posts = Post.joins(:user).where(users: {user_status: "参加者を募集する"}).page(params[:page]).order(created_at: :desc)
     #いいね数の多い投稿トップ3を表示する()
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:search]).where(users: {user_status: "プロジェクトを主催する"})
+    @posts = Post.search(params[:search]).where(users: {user_status: "参加者を募集する"})
     @posts = Post.search(params[:search]).page(params[:page])
   end
 
