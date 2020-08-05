@@ -45,12 +45,16 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :interest, length: { minimum: 1 }, on: :update
-  validates :introduction, length: {minimum: 1}, on: :update
+  validates :last_name, length: { minimum: 1, maximum: 100  }
+  validates :first_name, length: { minimum: 1, maximum: 100 }
+  validates :interest, length: { minimum: 1, maximum: 100 }, on: :update
+  validates :introduction, length: {minimum: 1, maximum: 1000 }, on: :update
   validates :user_status, presence: true, on: :update
+  validates :profile_image, presence: true, on: :update
   validates :postal_code, format: { with: /\A\d{7}\z/ }, allow_blank: true
-  validates :address, length: { minimum: 3}, allow_blank: true
+  validates :address, length: { minimum: 3, maximum: 100 }, allow_blank: true
+  validates :affiliation, length: { minimum: 1, maximum: 100  }, allow_blank: true
+  validates :job, length: { minimum: 1, maximum: 100  }, allow_blank: true
+  validates :person, length: { minimum: 1, maximum: 100  }, allow_blank: true
 
 end

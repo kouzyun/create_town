@@ -8,5 +8,7 @@ class Column < ApplicationRecord
 		Column.where(['title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%"])
 	end
 
-	validates :title, :body, :column_image, presence: :true
+	validates :title, length: { minimum: 1, maximum: 100 }
+	validates :body , length: { minimum: 1, maximum: 1000 }
+	validates :column_image, presence: :true
 end

@@ -20,8 +20,8 @@ class Post < ApplicationRecord
 		end
 	end
 
-	validates :title, presence: true
-	validates :body, presence: true
+	validates :title, length: { minimum: 1, maximum: 100 }
+	validates :body, length: { minimum: 1, maximum: 1000 }
 	validates :image, presence: true
-	validates :address, presence: true
+	validates :address,length: { minimum: 1,maximum: 100 }
 end

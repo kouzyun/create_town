@@ -15,6 +15,9 @@ ja:
         person: 会いたいひと
         postal_code: 郵便番号
         address: 住所
+        affiliation: 所属
+        job: 職業
+        profile_image: 写真
         phone_number: 電話番号
         user_status: ユーザーステータス
       post:

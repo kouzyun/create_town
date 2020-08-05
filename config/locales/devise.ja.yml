@@ -5,6 +5,8 @@ ja:
     models:
       user: ユーザ
   devise:
+    failure:
+      invalid: メールアドレスまたはパスワードが不正です。
     registrations:
       new:
       signed_up: アカウント登録が完了しました！ユーザー情報を編集してください。
