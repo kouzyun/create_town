@@ -74,7 +74,7 @@ gem 'kaminari', '~> 1.2.1'
 gem 'jquery-rails'
 gem 'gimei'
 gem 'rails-i18n'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 
 group :production do
