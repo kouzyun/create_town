@@ -25,8 +25,3 @@
 - これから実現したい事を投稿し、参加者を募集することができる
 - 何か地域活性系のプロジェクトに参加したい人が募集中の投稿を見ることができる
 - 投稿に関するいいねやコメントを行う
-
-## 設計書
-
-### 機能一覧
-<https://docs.google.com/spreadsheets/d/11T3AlKpVo0uGU31RMUy1jUBvmUnf7bjKuNdBz-L7aZo/edit?usp=sharing>
